@@ -6,7 +6,7 @@ export const registerPageStyles = makeStyles((theme) => ({
     },
     root: {
         "& .Mui-focused": {
-                    color: 'white',
+            color: 'white',
         },
         '& label.Mui-focused': {
             color: 'white',
@@ -27,7 +27,6 @@ export const registerPageStyles = makeStyles((theme) => ({
         },
     },
     paper: {
-        marginTop: theme.spacing(8),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

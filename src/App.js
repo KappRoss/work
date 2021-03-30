@@ -7,6 +7,8 @@ import {Container, CssBaseline, Box} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import Copyright from "./components/Copyright";
 import React from "react";
+import SettingsPage from './pages/settingsPage';
+import MainPageView from "./pages/mainPage";
 
 const useStyle = makeStyles(theme => ({
     icon: {
@@ -22,7 +24,7 @@ const useStyle = makeStyles(theme => ({
     },
     footer: {
         backgroundColor: theme.palette.primary.main,
-        padding: theme.spacing(6),
+        padding: theme.spacing(1,0,1,0),
     },
     app: {
         height: '100vh',
@@ -44,13 +46,15 @@ const App = () => {
                         <Switch>
                             <Route exact path={'/'} component={RegisterPage}/>
                             <Route exact path={'/signup'} component={SignUpPage}/>
+                            <Route exact path={'/settings'} component={SettingsPage}/>
+                            <Route exact path={'/main-page'} component={MainPageView}/>
                         </Switch>
                     </Container>
                 </div>
             </main>
             <footer>
                 <div className={classes.footer}>
-                    <Box mt={8}>
+                    <Box mt={2}>
                         <Copyright/>
                     </Box>
                 </div>
