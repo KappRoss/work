@@ -16,11 +16,12 @@ const useStyle = makeStyles(theme => ({
     },
     content: {
         backgroundColor: theme.palette.primary.main,
-        height: "100%",
+        // height: "100%",
         width: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: 'center',
+        height: "100%"
     },
     footer: {
         backgroundColor: theme.palette.primary.main,

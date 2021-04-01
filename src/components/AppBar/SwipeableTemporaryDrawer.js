@@ -13,6 +13,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SettingsApplicationsRoundedIcon from '@material-ui/icons/SettingsApplicationsRounded';
 import AccountBalanceWalletRoundedIcon from '@material-ui/icons/AccountBalanceWalletRounded';
 import ContactSupportRoundedIcon from '@material-ui/icons/ContactSupportRounded';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Link from "@material-ui/core/Link";
 import {NavLink} from "react-router-dom";
 
@@ -73,6 +74,12 @@ export default function SwipeableTemporaryDrawer() {
                         <ListItemText primary={'Settings'}/>
                     </ListItem>
                 </Link>
+                <ListItem button>
+                    <ListItemIcon>
+                        <ExitToAppIcon color={'secondary'} fontSize={'large'}/>
+                    </ListItemIcon>
+                    <ListItemText primary={'Log Out'}/>
+                </ListItem>
             </List>
         </div>
     );

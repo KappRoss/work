@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import {makeStyles} from "@material-ui/core";
 
 export const SettingsPageUseStyle = makeStyles(theme => ({
     container: {
@@ -13,6 +13,15 @@ export const SettingsPageUseStyle = makeStyles(theme => ({
         height: '75vh'
     },
     saveButtonDiv: {
-
+        display: "flex",
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    button: {
+        minWidth: 150
+    },
+    buttonCancel: {
+        marginRight: theme.spacing(2),
+        minWidth: 150
     }
 }))

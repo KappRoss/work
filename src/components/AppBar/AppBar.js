@@ -36,9 +36,12 @@ function ButtonAppBar(props) {
                                     : props.location.pathname === '/main-page'
                                     ? <div>
                                         <Link component={NavLink} to={'/'}>
-                                            <Button variant={'outlined'}>
-                                                {'log out'}
-                                            </Button>
+                                            {
+                                                window.innerWidth > 600 &&
+                                                     <Button variant={'outlined'}>
+                                                        {'log out'}
+                                                    </Button>
+                                            }
                                         </Link>
                                     </div>
                                     : <div/>

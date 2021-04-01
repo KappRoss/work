@@ -13,9 +13,11 @@ const SettingsPage = () => {
                 Settings
             </Typography>
             <div className={s.saveButtonDiv}>
-                <Link component={NavLink} to={'/main-page'} color={'inherit'}>
-                    <Button variant={'outlined'}>Save</Button>
+                <Button className={s.buttonCancel} variant={'outlined'}>Cancel</Button>
+                <Link component={NavLink} to={'/main-page'} color={'inherit'} color={'secondary'}>
+                    <Button className={s.button} variant={'outlined'} color={'secondary'}>Save</Button>
                 </Link>
+
             </div>
         </div>
     )
