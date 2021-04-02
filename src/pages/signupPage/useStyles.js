@@ -1,13 +1,35 @@
 import {makeStyles} from "@material-ui/core/styles"
 
 export const signUpPageStyles = makeStyles((theme) => ({
+    root: {
+        "& .Mui-focused": {
+            color: 'white',
+        },
+        '& label.Mui-focused': {
+            color: 'white',
+        },
+        '& .MuiInput-underline:after': {
+            borderBottomColor: "white",
+        },
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'white',
+            },
+            '&:hover fieldset': {
+                borderColor: 'white',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: 'white',
+            },
+        },
+    },
     container: {
         justifyContent: 'center'
     },
     title: {
         textAlign: "center",
         margin: "0 auto",
-        padding: theme.spacing(3,0)
+        padding: theme.spacing(3, 0)
     },
     subTitle: {
         display: "flex",
@@ -19,28 +41,41 @@ export const signUpPageStyles = makeStyles((theme) => ({
         }
     },
     description: {
-      margin: theme.spacing(1,0,1,0)
+        margin: theme.spacing(1, 0, 1, 0)
     },
     button: {
         margin: theme.spacing(1, 0, 1),
     },
-    items: {
+    registerBlock: {
         display: 'flex',
-        '& > div': {
+        '& > div ': {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            padding: theme.spacing(2),
-            margin: theme.spacing(1),
-            border: '2px solid',
-            borderColor: theme.palette.secondary.main,
-            borderRadius: 5
         }
     },
-    wallet: {
-
+    registerBlockItem: {},
+    registerItems: {
+        margin: theme.spacing(1),
+        padding: theme.spacing(2),
+        border: '2px solid',
+        borderColor: theme.palette.secondary.main,
+        borderRadius: 5,
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between"
     },
-    host: {
-
-    }
+    paper: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    form: {
+        width: '100%',
+        marginTop: theme.spacing(1),
+    },
+    submit: {
+        margin: theme.spacing(3, 0, 2),
+    },
 }))

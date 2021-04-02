@@ -28,11 +28,12 @@ function ButtonAppBar(props) {
                             </Typography>
                             {
                                 props.location.pathname === '/signup'
-                                    ? <Link component={NavLink} to={'/'} color={'inherit'}>
-                                        <Button variant={'outlined'}>
-                                            {'sign in'}
-                                        </Button>
-                                    </Link>
+                                    // ? <Link component={NavLink} to={'/'} color={'inherit'}>
+                                    //     <Button variant={'outlined'}>
+                                    //         {'settings'}
+                                    //     </Button>
+                                    // </Link>
+                                    ? null
                                     : props.location.pathname === '/main-page'
                                     ? <div>
                                         <Link component={NavLink} to={'/'}>

@@ -9,6 +9,7 @@ import Copyright from "./components/Copyright";
 import React from "react";
 import SettingsPage from './pages/settingsPage';
 import MainPageView from "./pages/mainPage";
+import LoaderPage from "./pages/loaderPage";
 
 const useStyle = makeStyles(theme => ({
     icon: {
@@ -45,9 +46,10 @@ const App = () => {
                 <div className={classes.content}>
                     <Container maxWidth="xl">
                         <Switch>
-                            <Route exact path={'/'} component={RegisterPage}/>
-                            <Route exact path={'/signup'} component={SignUpPage}/>
+                            <Route exact path={'/'} component={SignUpPage}/>
+                            {/*<Route exact path={'/signup'} component={SignUpPage}/>*/}
                             <Route exact path={'/settings'} component={SettingsPage}/>
+                            <Route exact path={'/loader'} component={LoaderPage}/>
                             <Route exact path={'/main-page'} component={MainPageView}/>
                         </Switch>
                     </Container>

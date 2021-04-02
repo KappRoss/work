@@ -13,13 +13,9 @@ import {NavLink, withRouter} from "react-router-dom";
 const SignIn = (props) => {
     const classes = registerPageStyles();
 
-    const [login, setLogin] = React.useState('')
     const [password, setPassword] = React.useState('')
 
-    const loginHandler = (event) => {
-        event.preventDefault()
-        setLogin(event.target.value)
-    }
+
 
     const passwordHandler = (event) => {
         event.preventDefault()
@@ -31,7 +27,7 @@ const SignIn = (props) => {
 
     const kayPressHandler = (event) => {
         if (event.key === 'Enter') {
-            props.auth(login, password)
+            // props.auth(login, password)
         }
     }
 
@@ -42,22 +38,6 @@ const SignIn = (props) => {
                     Sign in to ScPrime
                 </Typography>
                 <form className={classes.form}>
-                    <TextField
-                        //color="inherit"
-                        className={classes.root}
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
-                        autoFocus
-                        value={login}
-                        onChange={loginHandler}
-                        onKeyPress={kayPressHandler}
-                    />
                     <TextField
                         className={classes.root}
                         variant="outlined"
@@ -75,7 +55,6 @@ const SignIn = (props) => {
                     />
                     <Link component={NavLink} to={'/settings'}>
                         <Button
-                            // type="submit"
                             fullWidth
                             variant="contained"
                             color="secondary"
@@ -85,18 +64,11 @@ const SignIn = (props) => {
                             Sign In
                         </Button>
                     </Link>
-                    <Grid container>
                         <Grid item xs>
                             <Link href="#" variant="body2" color={'inherit'}>
                                 Forgot password?
                             </Link>
                         </Grid>
-                        <Grid item>
-                            <Link component={NavLink} to={'/signup'} variant="body2" color={'inherit'}>
-                                {"Don't have an account? Sign Up"}
-                            </Link>
-                        </Grid>
-                    </Grid>
                 </form>
             </div>
         </Container>
