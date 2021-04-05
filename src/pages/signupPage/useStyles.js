@@ -24,7 +24,9 @@ export const signUpPageStyles = makeStyles((theme) => ({
         },
     },
     container: {
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '88.2vh'
     },
     title: {
         textAlign: "center",

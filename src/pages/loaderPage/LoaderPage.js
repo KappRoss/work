@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import {Redirect} from 'react-router';
 import {makeStyles} from "@material-ui/core/styles";
-import {ReactReduxContext} from "react-redux";
 
 function CircularProgressWithLabel(props) {
     return (
@@ -41,6 +40,7 @@ const useStyles = makeStyles(theme => ({
         display: "flex",
         justifyContent: 'center',
         alignItems: 'center',
+        height: '88.2vh',
         flexDirection: "column",
         "& p": {
             paddingTop: theme.spacing(3)

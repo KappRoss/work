@@ -38,7 +38,7 @@ const SignUpPage = () => {
     return (
         <Grid container className={s.container}>
             {/*<Grid item xs={false} sm={2} md={3} xl={4}/> /!*Empty*!/*/}
-            <SeedDialogs open={open} handleClose={handleClose}/>
+
             <Grid item container xs={12} sm={8} md={7} lg={5} xl={4}>
                 <Grid item xs={12} className={s.title}>
                     <Typography variant={'h3'}>
@@ -121,7 +121,7 @@ const SignUpPage = () => {
                     </Grid>
                 </Grid>
             </Grid>
-
+            <SeedDialogs open={open} handleClose={handleClose}/>
             {/*<Grid item xs={false} sm={2} md={3} xl={4}/> /!*Empty*!/*/}
         </Grid>
     )

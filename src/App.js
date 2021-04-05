@@ -22,7 +22,6 @@ const useStyle = makeStyles(theme => ({
         display: "flex",
         alignItems: "center",
         justifyContent: 'center',
-        height: "100%"
     },
     footer: {
         backgroundColor: theme.palette.primary.main,
