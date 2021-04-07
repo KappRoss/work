@@ -110,9 +110,10 @@ export default function SeedDialogs(props) {
                         className={s.textarea}
                         rowsMin={5}
                         rowsMax={5}
+                        readOnly={props.mode}
                         aria-label="seed-code"
                         placeholder="Enter Seed Code"
-                        //defaultValue="seed-code seed-code seed-code seed-code seed-code seed-code"
+                        defaultValue="seed-code seed-code seed-code seed-code seed-code seed-code"
                     />
                 </DialogContent>
                 <DialogActions style={{display: 'flex'}}>
@@ -124,8 +125,6 @@ export default function SeedDialogs(props) {
                             login witch seed
                         </Button>
                     </Link>
-
-
                 </DialogActions>
             </Dialog>
         </div>

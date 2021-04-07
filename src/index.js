@@ -10,7 +10,6 @@ import { Provider } from 'react-redux';
 import {persistor, store} from './redux/store'
 
 ReactDOM.render(
-    <React.StrictMode>
         <Provider store={store}>
             <PersistGate persistor={persistor} loading={null}>
                 <Router>
@@ -19,8 +18,7 @@ ReactDOM.render(
                     </ThemeProvider>
                 </Router>
             </PersistGate>
-        </Provider>
-    </React.StrictMode>,
+        </Provider>,
     document.getElementById('root')
 );
 

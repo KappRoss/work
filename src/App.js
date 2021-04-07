@@ -1,6 +1,5 @@
 import './App.css'
 import {Switch, Route} from 'react-router-dom'
-import RegisterPage from "./pages/registerPage";
 import SignUpPage from "./pages/signupPage";
 import AppBar from "../src/components/AppBar";
 import {Container, CssBaseline, Box} from "@material-ui/core";
@@ -46,7 +45,6 @@ const App = () => {
                     <Container maxWidth="xl">
                         <Switch>
                             <Route exact path={'/'} component={SignUpPage}/>
-                            {/*<Route exact path={'/signup'} component={SignUpPage}/>*/}
                             <Route exact path={'/settings'} component={SettingsPage}/>
                             <Route exact path={'/loader'} component={LoaderPage}/>
                             <Route exact path={'/main-page'} component={MainPageView}/>
