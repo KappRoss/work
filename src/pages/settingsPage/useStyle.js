@@ -10,7 +10,10 @@ export const SettingsPageUseStyle = makeStyles(theme => ({
         alignItems: 'center',
         borderBottom: '2px solid',
         borderBottomColor: theme.palette.secondary.main,
-        height: '75vh'
+        height: '75vh',
+        "& > div": {
+            flex: 1
+        }
     },
     saveButtonDiv: {
         display: "flex",
