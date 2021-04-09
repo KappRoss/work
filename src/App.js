@@ -1,14 +1,17 @@
-import './App.css'
-import {Switch, Route} from 'react-router-dom'
-import SignUpPage from "./pages/signupPage";
+import './animateSwitсher.css'
+import {Switch, Route, useLocation} from 'react-router-dom'
+import SupervisorPassPage from "./pages/supervisorPassPage";
 import AppBar from "../src/components/AppBar";
-import {Container, CssBaseline, Box} from "@material-ui/core";
+import {Container, CssBaseline} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-import Copyright from "./components/Copyright";
 import React from "react";
 import SettingsPage from './pages/settingsPage';
 import MainPageView from "./pages/mainPage";
 import LoaderPage from "./pages/loaderPage";
+import WelcomePage from "./pages/welcomePage";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
+import SeedPage from "./pages/seedPage";
+import Footer from "./components/Footer";
 
 const useStyle = makeStyles(theme => ({
     icon: {
@@ -16,7 +19,6 @@ const useStyle = makeStyles(theme => ({
     },
     content: {
         backgroundColor: theme.palette.primary.main,
-        // height: "100%",
         width: "100%",
         display: "flex",
         alignItems: "center",
@@ -24,10 +26,10 @@ const useStyle = makeStyles(theme => ({
     },
     footer: {
         backgroundColor: theme.palette.primary.main,
-        padding: theme.spacing(1,0,1,0),
+        padding: theme.spacing(1, 0, 1, 0),
     },
     app: {
-        height: '100vh',
+        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column'
     }
@@ -35,30 +37,41 @@ const useStyle = makeStyles(theme => ({
 
 const App = () => {
     const classes = useStyle()
+    let location = useLocation()
+
+    let currLocation = location.pathname
 
     return (
         <div className={classes.app}>
             <CssBaseline/>
-            <AppBar/>
-            <main style={{display: "contents"}}>
+            {currLocation === '/loader' && <AppBar/>} {/*temporary solution*/}
+            {currLocation === '/main-page' && <AppBar/>}
+            <main>
                 <div className={classes.content}>
                     <Container maxWidth="xl">
-                        <Switch>
-                            <Route exact path={'/'} component={SignUpPage}/>
-                            <Route exact path={'/settings'} component={SettingsPage}/>
-                            <Route exact path={'/loader'} component={LoaderPage}/>
-                            <Route exact path={'/main-page'} component={MainPageView}/>
-                        </Switch>
+                        <TransitionGroup>
+                            <CSSTransition
+                                key={location.key}
+                                in={true}
+                                appear={true}
+                                timeout={1000}
+                                classNames="fade"
+                            >
+                                <Switch location={location}>
+                                    <Route exact path={'/'} component={WelcomePage}/>
+                                    <Route exact path={'/supervisor-password'} component={SupervisorPassPage}/>
+                                    <Route exact path={'/seed'} component={SeedPage}/>
+                                    <Route exact path={'/settings'} component={SettingsPage}/>
+                                    <Route exact path={'/loader'} component={LoaderPage}/>
+                                    <Route exact path={'/main-page'} component={MainPageView}/>
+                                </Switch>
+                            </CSSTransition>
+                        </TransitionGroup>
                     </Container>
                 </div>
             </main>
-            <footer>
-                <div className={classes.footer}>
-                    <Box mt={2}>
-                        <Copyright/>
-                    </Box>
-                </div>
-            </footer>
+            {currLocation === '/loader' && <Footer footerStyle={classes.footer}/>}
+            {currLocation === '/main-page' && <Footer footerStyle={classes.footer}/>}
         </div>
     )
 }

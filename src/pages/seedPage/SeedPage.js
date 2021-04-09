@@ -1,16 +1,15 @@
 import React from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles, TextareaAutosize} from "@material-ui/core";
-import Link from "@material-ui/core/Link";
-import {NavLink} from "react-router-dom";
+import {Container, TextareaAutosize} from "@material-ui/core";
+import {useHistory} from "react-router-dom";
+import {seedPageStyles} from "./useStyles";
 
 const styles = (theme) => ({
     root: {
@@ -41,67 +40,30 @@ const DialogTitle = withStyles(styles)((props) => {
 
 const DialogContent = withStyles((theme) => ({
     root: {
-        padding: theme.spacing(3,2,2,2),
+        padding: theme.spacing(3, 2, 2, 2),
     },
 }))(MuiDialogContent);
 
 const DialogActions = withStyles((theme) => ({
     root: {
         margin: 0,
-        padding: theme.spacing(2,1,2,1),
+        padding: theme.spacing(2, 1, 2, 1),
     },
 }))(MuiDialogActions);
 
-const useStyle = makeStyles(theme => ({
-    container: {
-        backgroundColor: theme.palette.primary.main,
-        padding: theme.spacing(1),
-        boxShadow: " 0px 0px 20px 5px #2074ee",
-    },
-    backdrop: {
-        backgroundColor: 'rgba(0,0,0,0.7)'
-    },
-    textarea: {
-        resize: "none",
-        width: '100%',
-        borderColor: theme.palette.secondary.main,
-        borderRadius: 5,
-        background: theme.palette.primary.main,
-        color: theme.palette.text.secondary,
-        padding: theme.spacing(3)
-    },
-    contentText: {
-        border: '1px solid ',
-        borderColor: theme.palette.secondary.main,
-        borderRadius: 5,
-        padding: theme.spacing(2),
-        marginBottom: theme.spacing(2),
-        "& span": {
-            color: theme.palette.warning.main
-        },
-        "& p": {
-            padding: theme.spacing(1,1,0,1),
-        }
-    }
-}))
-
-export default function SeedDialogs(props) {
-    const s = useStyle()
+const SeedPage = (props) => {
+    const s = seedPageStyles()
+    const history = useHistory();
 
     return (
-        <div>
-            <Dialog
-                onClose={props.handleClose}
-                aria-labelledby="customized-dialog-title"
-                open={props.open}
-                classes={{paper: s.container, container: s.backdrop}}
-            >
-                <DialogTitle id="customized-dialog-title" onClose={props.handleClose}>
+        <Container className={s.root} >
+            <div>
+                <DialogTitle id="customized-dialog-title">
                     Your Seed
                 </DialogTitle>
                 <DialogContent dividers>
                     <div className={s.contentText}>
-                        <Typography component={'span'}  variant={'button'}>Warning!</Typography>
+                        <Typography component={'span'} variant={'button'}>Warning!</Typography>
                         <Typography gutterBottom>
                             Please do not forget to save the SEED-code for future use of your wallet.
                         </Typography>
@@ -117,16 +79,19 @@ export default function SeedDialogs(props) {
                     />
                 </DialogContent>
                 <DialogActions style={{display: 'flex'}}>
-                    <Button fullWidth variant={'outlined'} onClick={props.handleClose} color="secondary">
-                        Cancel
+                    <Button
+                        fullWidth
+                        autoFocus
+                        variant={'contained'}
+                        color="secondary"
+                        onClick={() =>  history.push("/loader")}
+                    >
+                        login witch seed
                     </Button>
-                    <Link style={{width: '100%'}} component={NavLink} to={'/loader'}  color={'secondary'}>
-                        <Button  fullWidth autoFocus variant={'contained'} onClick={props.handleClose} color="secondary">
-                            login witch seed
-                        </Button>
-                    </Link>
                 </DialogActions>
-            </Dialog>
-        </div>
-    );
+            </div>
+        </Container>
+    )
 }
+
+export default SeedPage

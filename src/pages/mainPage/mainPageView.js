@@ -105,7 +105,6 @@ const MainPageView = () => {
                     <Button style={{marginBottom: 22}} variant={'outlined'} color={'secondary'}>DETAILED INFO</Button>
                     <Divider/>
                 </Grid>
-
                 <Grid item xs={12} className={s.wallet}>
                     <Typography variant={'button'}>
                         Accounting Of The Crypto Wallet
@@ -162,7 +161,6 @@ const MainPageView = () => {
                                             USD
                                         </Typography>
                                     </div>
-
                                 </div>
                                 <div className={s.info}>
                                     <Typography color={'textSecondary'}>
@@ -232,7 +230,6 @@ const MainPageView = () => {
                                             USD
                                         </Typography>
                                     </div>
-
                                 </div>
                                 <div className={s.info}>
                                     <Typography color={'textSecondary'}>
@@ -302,7 +299,6 @@ const MainPageView = () => {
                                             USD
                                         </Typography>
                                     </div>
-
                                 </div>
                                 <div className={s.info}>
                                     <Typography color={'textSecondary'}>
@@ -372,7 +368,6 @@ const MainPageView = () => {
                                             USD
                                         </Typography>
                                     </div>
-
                                 </div>
                                 <div className={s.info}>
                                     <Typography color={'textSecondary'}>
@@ -396,10 +391,7 @@ const MainPageView = () => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
                 </Grid>
                 <Grid item xs={12} sm={6} className={s.configuration}>
                     <div>

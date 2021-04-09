@@ -1,8 +1,25 @@
 import {makeStyles} from "@material-ui/core/styles"
 
-export const signUpPageStyles = makeStyles((theme) => ({
+export const supervisorPassPageStyles = makeStyles((theme) => ({
     root: {
-
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        minHeight: "100vh",
+        display: "flex!important",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        background: "black",
+        zIndex: 10000,
+        padding: 0,
+        margin: 0,
+        maxWidth: "100%!important"
+    },
+    textField: {
         "& .Mui-focused": {
             color: 'white',
         },
@@ -24,11 +41,6 @@ export const signUpPageStyles = makeStyles((theme) => ({
             },
         },
     },
-    container: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '88.2vh'
-    },
     title: {
         textAlign: "center",
         margin: "0 auto",
@@ -43,49 +55,17 @@ export const signUpPageStyles = makeStyles((theme) => ({
             fontWeight: 'bold'
         }
     },
-    description: {
-        margin: theme.spacing(1, 0, 1, 0)
-    },
     button: {
         margin: theme.spacing(1, 0, 1),
     },
-    registerBlock: {
-        display: 'flex',
-        '& > div ': {
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-        }
-    },
-    registerBlockItem: {},
     registerItems: {
         margin: theme.spacing(1),
         padding: theme.spacing(2),
         border: '2px solid',
         borderColor: theme.palette.secondary.main,
         borderRadius: 5,
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between"
-    },
-    paper: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
     },
     form: {
-        width: '100%',
         marginTop: theme.spacing(1),
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "center",
-    },
-    submit: {
-        margin: theme.spacing(3, 0, 2),
-    },
-    repeatText: {
-        paddingTop: theme.spacing(1),
     },
 }))

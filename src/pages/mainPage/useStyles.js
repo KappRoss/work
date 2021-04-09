@@ -4,7 +4,7 @@ export const mainPageUseStyle = makeStyles(theme => ({
     container: {
         display: 'flex',
         justifyContent: 'center',
-        minHeight: '100vh',
+        minHeight: '88.2vh',
         alignItems: 'end',
         "& > div > div": {
             textAlign: 'center'
