@@ -1,9 +1,10 @@
 import React from 'react'
-import {Button, Typography} from "@material-ui/core";
+import {Button, Checkbox, FormControlLabel, Typography} from "@material-ui/core";
 import {mainPageUseStyle} from "./useStyles";
 import Grid from "@material-ui/core/Grid";
-import UpTimer from "./uptimer";
-import Divider from "@material-ui/core/Divider";
+import UpTimer from "./components/Uptimer";
+import classNames from "classnames";
+import DiscMemory from "./components/DiscMemory";
 
 const MainPageView = () => {
     const s = mainPageUseStyle()
@@ -11,400 +12,450 @@ const MainPageView = () => {
     return (
         <Grid container className={s.container}>
             <Grid container item sm={10} md={10} lg={8} xl={8}>
-                <Grid item className={s.storage}>
-                    <Typography variant={'button'}>
-                        State Of Storage Volumes
-                    </Typography>
-                    <div className={s.storageItems}>
-                        <div className={s.cardContainer}>
-                            <Grid item className={s.card}>
-                                <Typography className={s.title}>
-                                    Uptime
-                                </Typography>
-                                <div className={s.storageItemsData}>
-                                    <UpTimer/>
+                <Grid item xs={12} md={6} className={s.accounting}>
+                    <div className={s.group}>
+                        <Typography variant={"button"} component={'p'} className={s.title}>
+                            Accounting
+                        </Typography>
+                        <Grid container xs={12} className={s.groupItems}>
+                            <Grid item xs={12} className={s.wallet}>
+                                <div className={classNames(s.groupBorderNone, s.walletItems)}>
+                                    <Typography>
+                                        Wallet:
+                                    </Typography>
+                                    <div>
+                                        <div className={s.currency}>
+                                            <Typography color={"secondary"}>
+                                                11,000
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                SCP
+                                            </Typography>
+                                        </div>
+                                        <div className={s.currency}>
+                                            <Typography color={'secondary'}>
+                                                $1,231.45
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                USD
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                    <Button variant={'contained'} color={'secondary'}>
+                                        send coins
+                                    </Button>
                                 </div>
                             </Grid>
+                            <Grid item xs={12} className={s.income}>
+                                <div className={classNames(s.groupBorderNone, s.incomeItems)}>
+                                    <Typography>
+                                        Income:
+                                    </Typography>
+                                    <div className={s.wallet}>
+                                        <Typography>
+                                            Last 30 Days
+                                        </Typography>
+                                        <div className={s.currency}>
+                                            <Typography color={"secondary"}>
+                                                11,000
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                SCP
+                                            </Typography>
+                                        </div>
+                                        <div className={s.currency}>
+                                            <Typography color={'secondary'}>
+                                                $1,231.45
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                USD
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                    <div className={s.wallet}>
+                                        <Typography>
+                                            Last 90 Days
+                                        </Typography>
+                                        <div className={s.currency}>
+                                            <Typography color={"secondary"}>
+                                                11,000
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                SCP
+                                            </Typography>
+                                        </div>
+                                        <div className={s.currency}>
+                                            <Typography color={'secondary'}>
+                                                $1,231.45
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                USD
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                    <div className={s.wallet}>
+                                        <Typography>
+                                            Total To Date
+                                        </Typography>
+                                        <div className={s.currency}>
+                                            <Typography color={"secondary"}>
+                                                11,000
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                SCP
+                                            </Typography>
+                                        </div>
+                                        <div className={s.currency}>
+                                            <Typography color={'secondary'}>
+                                                $1,231.45
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                USD
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} className={s.incentives}>
+                                <div className={classNames(s.groupBorderNone, s.incentivesItems)}>
+                                    <Typography>
+                                        Incentives:
+                                    </Typography>
+                                    <div className={s.wallet}>
+                                        <Typography>
+                                            Last 30 Days
+                                        </Typography>
+                                        <div className={s.currency}>
+                                            <Typography color={"secondary"}>
+                                                11,000
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                SCP
+                                            </Typography>
+                                        </div>
+                                        <div className={s.currency}>
+                                            <Typography color={'secondary'}>
+                                                $1,231.45
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                USD
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                    <div className={s.wallet}>
+                                        <Typography>
+                                            Last 90 Days
+                                        </Typography>
+                                        <div className={s.currency}>
+                                            <Typography color={"secondary"}>
+                                                11,000
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                SCP
+                                            </Typography>
+                                        </div>
+                                        <div className={s.currency}>
+                                            <Typography color={'secondary'}>
+                                                $1,231.45
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                USD
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                    <div className={s.wallet}>
+                                        <Typography>
+                                            Total To Date
+                                        </Typography>
+                                        <div className={s.currency}>
+                                            <Typography color={"secondary"}>
+                                                11,000
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                SCP
+                                            </Typography>
+                                        </div>
+                                        <div className={s.currency}>
+                                            <Typography color={'secondary'}>
+                                                $1,231.45
+                                            </Typography>
+                                            <Typography className={s.time}>
+                                                USD
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} className={s.autoConfiguration}>
+                                <div className={classNames(s.groupBorderNone, s.autoConfigurationItems)}>
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                checked={true}
+                                                //onChange={handleChange}
+                                                name="checkedB"
+                                                color="secondary"
+                                            />
+                                        }
+                                        labelPlacement="start"
+                                        label={"Pricing and Incentives Using Auto-configuration"}
+                                    />
+                                </div>
+                            </Grid>
+                            <Grid container item xs={12} className={classNames(s.prices, s.groupBorderNone)}>
+                                <Grid xs={7} item className={s.pricesTitle}>
+                                    <Typography>Storage Price (SCP/TB/Month):</Typography>
+                                    <Typography>Collateral Price (SCP/TB/Month):</Typography>
+                                    <Typography>Max Collateral (SCP/Contract):</Typography>
+                                    <Typography>Download Bandwidth Price (SCP/TB):</Typography>
+                                    <Typography>Upload Bandwidth Price (SCP/TB):</Typography>
+                                    <Typography>Max Duration:</Typography>
+                                    <Typography>Contract Creation Fee (SCP):</Typography>
+                                </Grid>
+                                <Grid xs={4} item className={s.pricesData}>
+                                    <div className={s.subData}>
+                                        <Typography variant="h5" component={'p'} color={'secondary'}>
+                                            20
+                                        </Typography>
+                                        <Typography className={s.time}>SCP</Typography>
+                                    </div>
+                                    <div className={s.subData}>
+                                        <Typography variant="h5" component={'p'} color={'secondary'}>
+                                            20
+                                        </Typography>
+                                        <Typography className={s.time}>SCP</Typography>
+                                    </div>
+                                    <div className={s.subData}>
+                                        <Typography variant="h5" component={'p'} color={'secondary'}>
+                                            1.103k
+                                        </Typography>
+                                        <Typography className={s.time}>SCP</Typography>
+                                    </div>
+                                    <div className={s.subData}>
+                                        <Typography variant="h5" component={'p'} color={'secondary'}>
+                                            100
+                                        </Typography>
+                                        <Typography className={s.time}>SCP</Typography>
+                                    </div>
+                                    <div className={s.subData}>
+                                        <Typography variant="h5" component={'p'} color={'secondary'}>
+                                            100
+                                        </Typography>
+                                        <Typography className={s.time}>SCP</Typography>
+                                    </div>
+                                    <div className={s.subData}>
+                                        <Typography variant="h5" component={'p'} color={'secondary'}>
+                                            12
+                                        </Typography>
+                                        <Typography className={s.time}>week</Typography>
+                                    </div>
+                                    <div className={s.subData}>
+                                        <Typography variant="h5" component={'p'} color={'secondary'}>
+                                            0.00015
+                                        </Typography>
+                                        <Typography className={s.time}>SCP</Typography>
+                                    </div>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </div>
+                </Grid>
+                <Grid container item xs={12} md={6}>
+                    <Grid item xs={12} className={s.storageAndNetwork}>
+                        <div className={s.group}>
+                            <div className={s.groupItems}>
+                                <Grid item xs={12} className={classNames(s.card, s.storage,)}>
+                                    <Typography variant={"button"} component={'p'}
+                                                className={classNames(s.title, s.storageTitle)}>
+                                        Storage
+                                    </Typography>
+                                    <div className={s.discData}>
+                                        <Grid container xs={12} className={s.discDataItem}>
+                                            <Grid item xs={4}>
+                                                <Typography>Disc 1:</Typography>
+                                            </Grid>
+                                            <Grid item xs={8}>
+                                                <DiscMemory value={30}/>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid className={s.discDataItem}>
+                                            <Grid item xs={4}>
+                                                <Typography>Disc 2:</Typography>
+                                            </Grid>
+                                            <Grid item xs={8}>
+                                                <DiscMemory value={90}/>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid className={s.discDataItem}>
+                                            <Grid item xs={4}>
+                                                <Typography>Disc 3:</Typography>
+                                            </Grid>
+                                            <Grid item xs={8}>
+                                                <DiscMemory value={54}/>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid className={s.discDataItem}>
+                                            <Grid item xs={4}>
+                                                <Typography>Disc 4:</Typography>
+                                            </Grid>
+                                            <Grid item xs={8}>
+                                                <DiscMemory value={60}/>
+                                            </Grid>
+                                        </Grid>
+                                    </div>
+                                    <div container xs={12} className={s.storageBlock}>
+                                        <div item xs={3} className={s.storageBlockItem}>
+                                            <Typography>
+                                                Used:
+                                            </Typography>
+                                            <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                5.63
+                                            </Typography>
+                                            <Typography className={s.time}>GB</Typography>
+                                        </div>
+                                        <div item xs={3} className={s.storageBlockItem}>
+                                            <Typography>
+                                                Free:
+                                            </Typography>
+                                            <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                802.62
+                                            </Typography>
+                                            <Typography className={s.time}>GB</Typography>
+                                        </div>
+                                        <div item xs={6} className={s.storageBlockItem}>
+                                            <Typography>
+                                                Last 30 Days:
+                                            </Typography>
+                                            <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                802.62
+                                            </Typography>
+                                            <Typography className={s.time}>GB</Typography>
+                                        </div>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} className={classNames(s.card, s.storage, s.group)}>
+                                    <Typography variant={"button"} component={'p'}
+                                                className={classNames(s.title, s.storageTitle)} gutterBottom>
+                                        Bandwidth
+                                    </Typography>
+                                    <Grid container className={s.bandwidthContainer}>
+                                        <Grid item container xs={6} className={classNames(s.card, s.bandwidth)}>
+                                            <Grid item xs={6} className={s.bandwidthTitles}>
+                                                <Typography>Sent:</Typography>
+                                                <Typography>Received:</Typography>
+                                            </Grid>
+                                            <Grid item xs={6} className={s.bandwidthData}>
+                                                <div className={s.subData}>
+                                                    <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                        5.63
+                                                    </Typography>
+                                                    <Typography className={s.time}>GB</Typography>
+                                                </div>
+                                                <div className={s.subData}>
+                                                    <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                        802.62
+                                                    </Typography>
+                                                    <Typography className={s.time}>GB</Typography>
+                                                </div>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid item container xs={6} className={classNames(s.card, s.bandwidth)}>
+                                            <Grid item xs={6} className={s.bandwidthTitles}>
+                                                <Typography>Upload:</Typography>
+                                                <Typography>Download:</Typography>
+                                            </Grid>
+                                            <Grid item xs={6} className={s.bandwidthData}>
+                                                <div className={s.subData}>
+                                                    <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                        100
+                                                    </Typography>
+                                                    <Typography className={s.time}>mbps</Typography>
+                                                </div>
+                                                <div className={s.subData}>
+                                                    <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                        1000
+                                                    </Typography>
+                                                    <Typography className={s.time}>mbps</Typography>
+                                                </div>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </div>
                         </div>
-                        <div className={s.cardContainer}>
-                            <Grid item className={s.card}>
-                                <Typography className={s.title} gutterBottom>
-                                    Storage Delta (Last 30 Days)
-                                </Typography>
-                                <Grid item className={s.storageItemsData}>
+                    </Grid>
+                    <Grid item xs={12} className={s.contracts}>
+                        <div className={s.group} style={{height: "92%"}}>
+                            <Typography className={s.title} style={{textAlign: 'left', paddingLeft: 16}}
+                                        component={'p'} variant={"button"}>Contracts</Typography>
+                            <Grid container className={classNames(s.card)}>
+                                <Grid item xs={4} className={s.contractsTitles}>
+                                    <Typography>Active:</Typography>
+                                    <Typography>Next End Date:</Typography>
+                                </Grid>
+                                <Grid item xs={3} className={s.contractsData}>
                                     <Typography variant="h5" component={'p'} color={'secondary'}>
-                                        5.61
+                                        4
                                     </Typography>
-                                    <Typography className={s.time}>GB</Typography>
+                                    <Typography variant="h5" component={'p'} color={'secondary'}>
+                                        23/7/2021
+                                    </Typography>
                                 </Grid>
                             </Grid>
                         </div>
-                        <div className={s.cardContainer}>
-                            <Grid item className={s.card}>
-                                <Typography className={s.title} gutterBottom>
-                                    Storage Usage
-                                </Typography>
-                                <Grid container item className={s.storageItemsData}>
-                                    <Grid item style={{marginRight: 50}} className={s.storageSubItem}>
-                                        <div>
-                                            <Typography variant="h5" component={'p'} color={'secondary'}>
-                                                5.63
-                                            </Typography>
-                                            <Typography className={s.time}>GB</Typography>
-                                        </div>
-                                        <Typography color={'textSecondary'}>
-                                            Used
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item className={s.storageSubItem}>
-                                        <div>
-                                            <Typography variant="h5" component={'p'} color={'secondary'}>
-                                                802.62
-                                            </Typography>
-                                            <Typography className={s.time}>GB</Typography>
-                                        </div>
-                                        <Typography color={'textSecondary'}>
-                                            Total
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </div>
-                        <div className={s.cardContainer}>
-                            <Grid item className={s.card}>
-                                <Typography className={s.title} gutterBottom>
-                                    Bandwidth Usage (Last 30 Days)
-                                </Typography>
-                                <Grid container item className={s.storageItemsData}>
-                                    <Grid item style={{marginRight: 50}} className={s.storageSubItem}>
-                                        <div>
-                                            <Typography variant="h5" component={'p'} color={'secondary'}>
-                                                5.63
-                                            </Typography>
-                                            <Typography className={s.time}>GB</Typography>
-                                        </div>
-                                        <Typography color={'textSecondary'}>
-                                            Sent
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item className={s.storageSubItem}>
-                                        <div>
-                                            <Typography variant="h5" component={'p'} color={'secondary'}>
-                                                802.62
-                                            </Typography>
-                                            <Typography className={s.time}>GB</Typography>
-                                        </div>
-                                        <Typography color={'textSecondary'}>
-                                            Received
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </div>
-                    </div>
-                    <Button style={{marginBottom: 22}} variant={'outlined'} color={'secondary'}>DETAILED INFO</Button>
-                    <Divider/>
+
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} className={s.wallet}>
-                    <Typography variant={'button'}>
-                        Accounting Of The Crypto Wallet
-                    </Typography>
-                    <div className={s.calendar}>
-                        <Typography style={{margin: 8}} component={'p'} variant={'textSecondary'}>
-                            {'< Select data (calendar) >'}
-                        </Typography>
-                    </div>
-                    <div className={s.walletDataContainer}>
-                        <div className={s.walletData}>
-                            <div className={s.walletDataItem}>
-                                <Typography className={s.title}>
-                                    01 May 2021
-                                </Typography>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Earned Revenue
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                        <Typography className={s.time}>
-                                            SC
-                                        </Typography>
+                <Grid item className={s.systemHealth}>
+                    <div className={s.group}>
+                        {/*<Typography variant={"button"} component={'p'} className={s.title}>*/}
+                        {/*    System Health*/}
+                        {/*</Typography>*/}
+                        <div className={classNames(s.groupItems, s.systemBlock)}>
+                            <div className={s.infoBlock}>
+                                <div className={s.infoBlockItem}>
+                                    <div className={s.storageItemsData}>
+                                        <Typography>Announced Address:</Typography>
+                                        <Typography variant="h5" color={"secondary"}>195.130.205.91:4282</Typography>
                                     </div>
-                                    <div className={s.currency}>
-                                        <Typography color={'secondary'}>
-                                            $0.00
-                                        </Typography>
-                                        <Typography color={'textSecondary'}>
-                                            USD
-                                        </Typography>
+                                    <div className={s.storageItemsData}>
+                                        <Typography>Ports:</Typography>
+                                        <Typography variant="h5" color={"secondary"}>Open</Typography>
                                     </div>
                                 </div>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Potential Revenue
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
+                                <div className={s.infoBlockItem}>
+                                    <div className={s.storageItemsData}>
+                                        <Typography>
+                                            Uptime
                                         </Typography>
-                                        <Typography className={s.time}>
-                                            SC
-                                        </Typography>
+                                        <UpTimer/>
                                     </div>
-                                    <div className={s.currency}>
-                                        <Typography color={'secondary'}>
-                                            $0.00
-                                        </Typography>
-                                        <Typography color={'textSecondary'}>
-                                            USD
-                                        </Typography>
+                                    <div className={s.storageItemsData}>
+                                        <Typography>Block Height:</Typography>
+                                        <Typography variant="h5" color={"secondary"}>130,000</Typography>
                                     </div>
-                                </div>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        New Contracts
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                    </div>
-                                </div>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Successful Contracts
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
+                                    <div className={s.storageItemsData}>
+                                        <Typography>Version:</Typography>
+                                        <Typography variant="h5" color={"secondary"}>1.5.2</Typography>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className={s.walletData}>
-                            <div className={s.walletDataItem}>
-                                <Typography className={s.title}>
-                                    May 2021
-                                </Typography>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Earned Revenue
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                        <Typography className={s.time}>
-                                            SC
-                                        </Typography>
-                                    </div>
-                                    <div className={s.currency}>
-                                        <Typography color={'secondary'}>
-                                            $0.00
-                                        </Typography>
-                                        <Typography color={'textSecondary'}>
-                                            USD
-                                        </Typography>
-                                    </div>
-                                </div>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Potential Revenue
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                        <Typography className={s.time}>
-                                            SC
-                                        </Typography>
-                                    </div>
-                                    <div className={s.currency}>
-                                        <Typography color={'secondary'}>
-                                            $0.00
-                                        </Typography>
-                                        <Typography color={'textSecondary'}>
-                                            USD
-                                        </Typography>
-                                    </div>
-                                </div>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        New Contracts
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                    </div>
-                                </div>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Successful Contracts
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                    </div>
-                                </div>
+                            {/*<div className={s.cardContainer}>*/}
+                            {/*    <SystemData classes={{card: s.card, time: s.time}}/>*/}
+                            {/*</div>*/}
+                            <div className={s.navButton}>
+                                {/*<Button className={s.resetButton} variant={'outlined'} size={'large'}>*/}
+                                {/*    <Typography>*/}
+                                {/*        system reset*/}
+                                {/*    </Typography>*/}
+                                {/*    /!*<Typography variant={'caption'} component={'p'} style={{textTransform: "lowercase"}}>*!/*/}
+                                {/*    /!*    Use only if instructed*!/*/}
+                                {/*    /!*</Typography>*!/*/}
+                                {/*</Button>*/}
+                                <Button variant={'outlined'} color={"secondary"}>support</Button>
+                                <Button variant={'outlined'} color={"secondary"}>busic settings</Button>
                             </div>
                         </div>
-                        <div className={s.walletData}>
-                            <div className={s.walletDataItem}>
-                                <Typography className={s.title}>
-                                    2021
-                                </Typography>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Earned Revenue
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                        <Typography className={s.time}>
-                                            SC
-                                        </Typography>
-                                    </div>
-                                    <div className={s.currency}>
-                                        <Typography color={'secondary'}>
-                                            $0.00
-                                        </Typography>
-                                        <Typography color={'textSecondary'}>
-                                            USD
-                                        </Typography>
-                                    </div>
-                                </div>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Potential Revenue
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                        <Typography className={s.time}>
-                                            SC
-                                        </Typography>
-                                    </div>
-                                    <div className={s.currency}>
-                                        <Typography color={'secondary'}>
-                                            $0.00
-                                        </Typography>
-                                        <Typography color={'textSecondary'}>
-                                            USD
-                                        </Typography>
-                                    </div>
-                                </div>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        New Contracts
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                    </div>
-                                </div>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Successful Contracts
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={s.walletData}>
-                            <div className={s.walletDataItem}>
-                                <Typography className={s.title}>
-                                    Total
-                                </Typography>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Earned Revenue
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                        <Typography className={s.time}>
-                                            SC
-                                        </Typography>
-                                    </div>
-                                    <div className={s.currency}>
-                                        <Typography color={'secondary'}>
-                                            $0.00
-                                        </Typography>
-                                        <Typography color={'textSecondary'}>
-                                            USD
-                                        </Typography>
-                                    </div>
-                                </div>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Potential Revenue
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            5
-                                        </Typography>
-                                        <Typography className={s.time}>
-                                            SC
-                                        </Typography>
-                                    </div>
-                                    <div className={s.currency}>
-                                        <Typography color={'secondary'}>
-                                            $400.00
-                                        </Typography>
-                                        <Typography color={'textSecondary'}>
-                                            USD
-                                        </Typography>
-                                    </div>
-                                </div>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Active Contracts
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                    </div>
-                                </div>
-                                <div className={s.info}>
-                                    <Typography color={'textSecondary'}>
-                                        Successful Contracts
-                                    </Typography>
-                                    <div className={s.currency}>
-                                        <Typography color={"secondary"}>
-                                            0
-                                        </Typography>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Grid>
-                <Grid item xs={12} sm={6} className={s.configuration}>
-                    <div>
-                        <Typography>
-                            Configuration screen for when a drive is replaced
-                        </Typography>
-                    </div>
-                </Grid>
-                <Grid item xs={12} sm={6} className={s.blockchainStatus}>
-                    <div>
-                        <Typography>
-                            Simple blockchain status
-                        </Typography>
                     </div>
                 </Grid>
             </Grid>

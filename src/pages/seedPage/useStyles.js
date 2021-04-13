@@ -34,10 +34,10 @@ export const seedPageStyles = makeStyles(theme => ({
         padding: theme.spacing(3)
     },
     contentText: {
-        border: '1px solid ',
-        borderColor: theme.palette.secondary.main,
-        borderRadius: 5,
-        padding: theme.spacing(2),
+        // border: '1px solid ',
+        // borderColor: theme.palette.secondary.main,
+        // borderRadius: 5,
+        padding: theme.spacing(1,2,2,2),
         marginBottom: theme.spacing(2),
         "& span": {
             color: theme.palette.warning.main
@@ -46,4 +46,11 @@ export const seedPageStyles = makeStyles(theme => ({
             padding: theme.spacing(1, 1, 0, 1),
         }
     },
+    mainContent: {
+        border: '2px solid',
+        borderColor: theme.palette.secondary.main,
+        borderRadius: theme.spacing(1),
+        padding: theme.spacing(1),
+        boxShadow: `0px 0px 20px 0px ${theme.palette.secondary.main}`
+    }
 }))

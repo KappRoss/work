@@ -57,7 +57,7 @@ const SeedPage = (props) => {
 
     return (
         <Container className={s.root} >
-            <div>
+            <div className={s.mainContent}>
                 <DialogTitle id="customized-dialog-title">
                     Your Seed
                 </DialogTitle>
@@ -72,7 +72,7 @@ const SeedPage = (props) => {
                         className={s.textarea}
                         rowsMin={5}
                         rowsMax={5}
-                        readOnly={props.mode}
+                        readOnly
                         aria-label="seed-code"
                         placeholder="Enter Seed Code"
                         defaultValue="seed-code seed-code seed-code seed-code seed-code seed-code"
