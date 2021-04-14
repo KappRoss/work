@@ -4,7 +4,7 @@ export const mainPageUseStyle = makeStyles(theme => ({
     container: {
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'end',
+        alignItems: 'center',
         "& > div > div": {
             textAlign: 'center'
         }
