@@ -443,7 +443,7 @@ const MainPageView = () => {
                             {/*<div className={s.cardContainer}>*/}
                             {/*    <SystemData classes={{card: s.card, time: s.time}}/>*/}
                             {/*</div>*/}
-                            <div className={s.navButton}>
+                            <div className={s.navButtonBlock}>
                                 {/*<Button className={s.resetButton} variant={'outlined'} size={'large'}>*/}
                                 {/*    <Typography>*/}
                                 {/*        system reset*/}
@@ -452,8 +452,17 @@ const MainPageView = () => {
                                 {/*    /!*    Use only if instructed*!/*/}
                                 {/*    /!*</Typography>*!/*/}
                                 {/*</Button>*/}
-                                <Button variant={'outlined'} color={"secondary"}>support</Button>
-                                <Button variant={'outlined'} color={"secondary"}>busic settings</Button>
+                                <Button
+                                    variant={'outlined'}
+                                    color={"secondary"}
+                                    className={s.mainNavButton}
+                                    size={'large'}
+                                >support</Button>
+                                <Button variant={'outlined'}
+                                        color={"secondary"}
+                                        className={s.mainNavButton}
+                                        size={'large'}
+                                >basic settings</Button>
                             </div>
                         </div>
                     </div>

@@ -6,7 +6,7 @@ const Footer = (props) => {
     return (
         <footer>
             <div className={props.footerStyle}>
-                <Box mt={2}>
+                <Box>
                     <Copyright/>
                 </Box>
             </div>

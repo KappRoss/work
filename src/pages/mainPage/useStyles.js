@@ -64,11 +64,13 @@ export const mainPageUseStyle = makeStyles(theme => ({
         display: "flex",
         flexDirection: 'column'
     },
-    navButton: {
+    navButtonBlock: {
         '& > *': {
             margin: theme.spacing(0, 1),
         },
-
+    },
+    mainNavButton:{
+        color: "inherit"
     },
     infoBlockItem: {
         display: "flex"
@@ -266,7 +268,7 @@ export const mainPageUseStyle = makeStyles(theme => ({
     },
     contracts: {
         gridArea: "contracts",
-        height: 228
+        height: 224
     },
     storageAndNetwork: {
         gridArea: "storageAndNetwork"

@@ -11,7 +11,6 @@ import LoaderPage from "./pages/loaderPage";
 import WelcomePage from "./pages/welcomePage";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import SeedPage from "./pages/seedPage";
-import Footer from "./components/Footer";
 
 const useStyle = makeStyles(theme => ({
     icon: {
@@ -20,18 +19,16 @@ const useStyle = makeStyles(theme => ({
     content: {
         backgroundColor: theme.palette.primary.main,
         width: "100%",
+
         display: "flex",
         alignItems: "center",
         justifyContent: 'center',
     },
-    footer: {
-        backgroundColor: theme.palette.primary.main,
-        padding: theme.spacing(1, 0, 1, 0),
-    },
     app: {
         minHeight: '100vh',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        backgroundColor: theme.palette.primary.main,
     }
 }))
 
@@ -70,8 +67,8 @@ const App = () => {
                     </Container>
                 </div>
             </main>
-            {currLocation === '/loader' && <Footer footerStyle={classes.footer}/>}
-            {currLocation === '/main-page' && <Footer footerStyle={classes.footer}/>}
+            {/*{currLocation === '/loader' && <Footer footerStyle={classes.footer}/>}*/}
+            {/*{currLocation === '/main-page' && <Footer footerStyle={classes.footer}/>}*/}
         </div>
     )
 }
