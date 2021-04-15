@@ -16,6 +16,35 @@ export const seedPageStyles = makeStyles(theme => ({
         margin: 0,
         maxWidth: "100%"
     },
+    textField: {
+        "& .Mui-focused": {
+            color: 'white',
+        },
+        '& label.Mui-focused': {
+            color: 'white',
+        },
+        '& .MuiInput-underline:after': {
+            borderBottomColor: "white",
+        },
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'white',
+            },
+            '&:hover fieldset': {
+                borderColor: 'white',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: 'white',
+            },
+        },
+    },
+    form: {
+        width: '100%',
+        marginTop: theme.spacing(1),
+    },
+    submit: {
+        margin: theme.spacing(3, 0, 2),
+    },
     container: {
         padding: theme.spacing(1),
         boxShadow: " 0px 0px 20px 5px #2074ee",
@@ -40,10 +69,16 @@ export const seedPageStyles = makeStyles(theme => ({
         }
     },
     mainContent: {
+        display: 'flex',
+        flexDirection: 'column',
         border: '2px solid',
         borderColor: theme.palette.secondary.main,
         borderRadius: theme.spacing(1),
         padding: theme.spacing(1),
-        boxShadow: `0px 0px 20px 0px ${theme.palette.secondary.main}`
+        boxShadow: `0px 0px 20px 0px ${theme.palette.secondary.main}`,
+        width: 600,
+        minHeight: 450,
+        justifyContent: 'space-around',
+        flexWrap: "wrap"
     }
 }))
