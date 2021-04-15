@@ -10,5 +10,9 @@ export const theme = createMuiTheme({
             main: '#2074ee',
             dark: '#3062a8'
         },
+        background: {
+            paper: '#0b0c0e',
+            default: '#0b0c0e'
+        }
     },
 });

@@ -6,11 +6,12 @@ import {Container, CssBaseline} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import React from "react";
 import SettingsPage from './pages/settingsPage';
-import MainPageView from "./pages/mainPage";
+import MainPageView from "./pages/mainPageAdvanced";
 import LoaderPage from "./pages/loaderPage";
 import WelcomePage from "./pages/welcomePage";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import SeedPage from "./pages/seedPage";
+import MainPageBasicView from "./pages/mainPageBasic";
 
 const useStyle = makeStyles(theme => ({
     icon: {
@@ -19,10 +20,10 @@ const useStyle = makeStyles(theme => ({
     content: {
         backgroundColor: theme.palette.primary.main,
         width: "100%",
-
         display: "flex",
         alignItems: "center",
         justifyContent: 'center',
+        minHeight: "85vh" //////// temporary!!!
     },
     app: {
         minHeight: '100vh',
@@ -36,13 +37,10 @@ const App = () => {
     const classes = useStyle()
     let location = useLocation()
 
-    let currLocation = location.pathname
-
     return (
         <div className={classes.app}>
             <CssBaseline/>
-            {currLocation === '/loader' && <AppBar/>} {/*temporary solution*/}
-            {currLocation === '/main-page' && <AppBar/>}
+            <AppBar/>
             <main>
                 <div className={classes.content}>
                     <Container maxWidth="xl">
@@ -60,7 +58,8 @@ const App = () => {
                                     <Route exact path={'/seed'} component={SeedPage}/>
                                     <Route exact path={'/settings'} component={SettingsPage}/>
                                     <Route exact path={'/loader'} component={LoaderPage}/>
-                                    <Route exact path={'/main-page'} component={MainPageView}/>
+                                    <Route exact path={'/main-page'} component={MainPageBasicView}/>
+                                    <Route exact path={'/main-page-advanced'} component={MainPageView}/>
                                 </Switch>
                             </CSSTransition>
                         </TransitionGroup>

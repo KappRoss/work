@@ -17,7 +17,7 @@ function ButtonAppBar(props) {
                     <Grid item xs={12} sm={10} md={10} lg={8} xl={6}>
                         <Toolbar className={classes.toolbar}>
                             {
-                                props.location.pathname === '/main-page' &&
+
                                 <>
                                     <XaMiner/>
                                     <ScPrimeSVG/>

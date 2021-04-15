@@ -2,12 +2,20 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export const mainPageUseStyle = makeStyles(theme => ({
     container: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        position: 'absolute',
+        top: theme.spacing(10),
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        padding: 0,
+        maxWidth: "100%",
         "& > div > div": {
             textAlign: 'center'
-        }
+        },
     },
     title: {
         padding: theme.spacing(1, 0)
@@ -32,51 +40,6 @@ export const mainPageUseStyle = makeStyles(theme => ({
     time: {
         color: theme.palette.secondary.dark
     },
-
-
-    ////start systemHealth block////
-    card: {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-    },
-    systemBlock: {
-        display: "flex",
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: theme.spacing(1, 2, 1, 2)
-    },
-    storageItemsData: {
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "baseline",
-        paddingRight: theme.spacing(3),
-        "& p": {
-            paddingRight: 3,
-        },
-    },
-    resetButton: {
-        display: 'block',
-        color: theme.palette.error.main,
-        borderColor: theme.palette.secondary.main
-    },
-    infoBlock: {
-        display: "flex",
-        flexDirection: 'column'
-    },
-    navButtonBlock: {
-        '& > *': {
-            margin: theme.spacing(0, 1),
-        },
-    },
-    mainNavButton:{
-        color: "inherit"
-    },
-    infoBlockItem: {
-        display: "flex"
-    },
-    ////end systemHealth block//////
-
 
     //////start accounting block/////////
     wallet: {
@@ -268,7 +231,7 @@ export const mainPageUseStyle = makeStyles(theme => ({
     },
     contracts: {
         gridArea: "contracts",
-        height: 224
+        height: 202
     },
     storageAndNetwork: {
         gridArea: "storageAndNetwork"

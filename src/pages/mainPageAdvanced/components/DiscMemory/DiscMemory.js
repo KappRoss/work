@@ -16,7 +16,7 @@ function LinearProgressWithLabel(props) {
     return (
         <Box display="flex" alignItems="center">
             <Box width="100%" mr={1}>
-                <LinearProgress classes={{root: s.root}} color={'secondary'} variant="determinate" {...props} />
+                <LinearProgress classes={{root: props.height || s.root}} color={'secondary'} variant="determinate" {...props} />
             </Box>
             <Box minWidth={35}>
                 <Typography variant="body2" color="textSecondary">{`${Math.round(
@@ -43,7 +43,7 @@ const useStyles = makeStyles({
 
 export default function DiscMemory(props) {
     const classes = useStyles();
-    const [progress, setProgress] = React.useState(60);
+    // const [progress, setProgress] = React.useState(60);
 
     // React.useEffect(() => {
     //     const timer = setInterval(() => {
@@ -56,7 +56,7 @@ export default function DiscMemory(props) {
 
     return (
         <div className={classes.root}>
-            <LinearProgressWithLabel value={props.value}/>
+            <LinearProgressWithLabel value={props.value} height={props.height}/>
         </div>
     );
 }

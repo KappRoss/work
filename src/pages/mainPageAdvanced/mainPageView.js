@@ -2,9 +2,9 @@ import React from 'react'
 import {Button, Checkbox, FormControlLabel, Typography} from "@material-ui/core";
 import {mainPageUseStyle} from "./useStyles";
 import Grid from "@material-ui/core/Grid";
-import UpTimer from "./components/Uptimer";
 import classNames from "classnames";
 import DiscMemory from "./components/DiscMemory";
+import SystemBlock from "../../components/SystemBlock";
 
 const MainPageView = () => {
     const s = mainPageUseStyle()
@@ -17,7 +17,7 @@ const MainPageView = () => {
                         <Typography variant={"button"} component={'p'} className={s.title}>
                             Accounting
                         </Typography>
-                        <Grid container xs={12} className={s.groupItems}>
+                        <Grid container className={s.groupItems}>
                             <Grid item xs={12} className={s.wallet}>
                                 <div className={classNames(s.groupBorderNone, s.walletItems)}>
                                     <Typography>
@@ -202,7 +202,7 @@ const MainPageView = () => {
                                     />
                                 </div>
                             </Grid>
-                            <Grid container item xs={12} className={classNames(s.prices, s.groupBorderNone)}>
+                            <Grid item xs={12} className={classNames(s.prices, s.groupBorderNone)}>
                                 <Grid xs={7} item className={s.pricesTitle}>
                                     <Typography>Storage Price (SCP/TB/Month):</Typography>
                                     <Typography>Collateral Price (SCP/TB/Month):</Typography>
@@ -260,7 +260,7 @@ const MainPageView = () => {
                         </Grid>
                     </div>
                 </Grid>
-                <Grid container item xs={12} md={6}>
+                <Grid item md={6}>
                     <Grid item xs={12} className={s.storageAndNetwork}>
                         <div className={s.group}>
                             <div className={s.groupItems}>
@@ -270,7 +270,7 @@ const MainPageView = () => {
                                         Storage
                                     </Typography>
                                     <div className={s.discData}>
-                                        <Grid container xs={12} className={s.discDataItem}>
+                                        <Grid container  className={s.discDataItem}>
                                             <Grid item xs={4}>
                                                 <Typography>Disc 1:</Typography>
                                             </Grid>
@@ -303,8 +303,8 @@ const MainPageView = () => {
                                             </Grid>
                                         </Grid>
                                     </div>
-                                    <div container xs={12} className={s.storageBlock}>
-                                        <div item xs={3} className={s.storageBlockItem}>
+                                    <div className={s.storageBlock}>
+                                        <div className={s.storageBlockItem}>
                                             <Typography>
                                                 Used:
                                             </Typography>
@@ -313,7 +313,7 @@ const MainPageView = () => {
                                             </Typography>
                                             <Typography className={s.time}>GB</Typography>
                                         </div>
-                                        <div item xs={3} className={s.storageBlockItem}>
+                                        <div  className={s.storageBlockItem}>
                                             <Typography>
                                                 Free:
                                             </Typography>
@@ -322,7 +322,7 @@ const MainPageView = () => {
                                             </Typography>
                                             <Typography className={s.time}>GB</Typography>
                                         </div>
-                                        <div item xs={6} className={s.storageBlockItem}>
+                                        <div className={s.storageBlockItem}>
                                             <Typography>
                                                 Last 30 Days:
                                             </Typography>
@@ -408,63 +408,7 @@ const MainPageView = () => {
                 </Grid>
                 <Grid item className={s.systemHealth}>
                     <div className={s.group}>
-                        {/*<Typography variant={"button"} component={'p'} className={s.title}>*/}
-                        {/*    System Health*/}
-                        {/*</Typography>*/}
-                        <div className={classNames(s.groupItems, s.systemBlock)}>
-                            <div className={s.infoBlock}>
-                                <div className={s.infoBlockItem}>
-                                    <div className={s.storageItemsData}>
-                                        <Typography>Announced Address:</Typography>
-                                        <Typography variant="h5" color={"secondary"}>195.130.205.91:4282</Typography>
-                                    </div>
-                                    <div className={s.storageItemsData}>
-                                        <Typography>Ports:</Typography>
-                                        <Typography variant="h5" color={"secondary"}>Open</Typography>
-                                    </div>
-                                </div>
-                                <div className={s.infoBlockItem}>
-                                    <div className={s.storageItemsData}>
-                                        <Typography>
-                                            Uptime
-                                        </Typography>
-                                        <UpTimer/>
-                                    </div>
-                                    <div className={s.storageItemsData}>
-                                        <Typography>Block Height:</Typography>
-                                        <Typography variant="h5" color={"secondary"}>130,000</Typography>
-                                    </div>
-                                    <div className={s.storageItemsData}>
-                                        <Typography>Version:</Typography>
-                                        <Typography variant="h5" color={"secondary"}>1.5.2</Typography>
-                                    </div>
-                                </div>
-                            </div>
-                            {/*<div className={s.cardContainer}>*/}
-                            {/*    <SystemData classes={{card: s.card, time: s.time}}/>*/}
-                            {/*</div>*/}
-                            <div className={s.navButtonBlock}>
-                                {/*<Button className={s.resetButton} variant={'outlined'} size={'large'}>*/}
-                                {/*    <Typography>*/}
-                                {/*        system reset*/}
-                                {/*    </Typography>*/}
-                                {/*    /!*<Typography variant={'caption'} component={'p'} style={{textTransform: "lowercase"}}>*!/*/}
-                                {/*    /!*    Use only if instructed*!/*/}
-                                {/*    /!*</Typography>*!/*/}
-                                {/*</Button>*/}
-                                <Button
-                                    variant={'outlined'}
-                                    color={"secondary"}
-                                    className={s.mainNavButton}
-                                    size={'large'}
-                                >support</Button>
-                                <Button variant={'outlined'}
-                                        color={"secondary"}
-                                        className={s.mainNavButton}
-                                        size={'large'}
-                                >basic settings</Button>
-                            </div>
-                        </div>
+                        <SystemBlock/>
                     </div>
                 </Grid>
             </Grid>
