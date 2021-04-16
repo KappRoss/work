@@ -112,7 +112,6 @@ const MainPageBasicView = () => {
                                 </div>
                             </div>
                         </Grid>
-
                     </Grid>
                     <Button variant={'contained'} color={"secondary"}
                     >Send Coins to Outside Wallet</Button>

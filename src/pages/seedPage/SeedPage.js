@@ -11,7 +11,6 @@ import {Container, TextareaAutosize, TextField} from "@material-ui/core";
 import {useHistory} from "react-router-dom";
 import {seedPageStyles} from "./useStyles";
 import is from 'is_js'
-import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 
 const styles = (theme) => ({
@@ -130,7 +129,6 @@ const SeedPage = (props) => {
                             />
                         </form>
                     }
-
                 </DialogContent>
                 <DialogActions style={{display: 'flex'}}>
                     <Button

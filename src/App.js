@@ -12,7 +12,7 @@ import WelcomePage from "./pages/welcomePage";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import SeedPage from "./pages/seedPage";
 import MainPageBasicView from "./pages/mainPageBasic";
-import EmailPage from "./pages/emailPage";
+import SupportPage from "./pages/supportPage";
 
 const useStyle = makeStyles(theme => ({
     icon: {
@@ -57,11 +57,11 @@ const App = () => {
                                     <Route exact path={'/'} component={WelcomePage}/>
                                     <Route exact path={'/supervisor-password'} component={SupervisorPassPage}/>
                                     <Route exact path={'/seed'} component={SeedPage}/>
-                                    <Route exact path={'/email'} component={EmailPage}/>
                                     <Route exact path={'/settings'} component={SettingsPage}/>
                                     <Route exact path={'/loader'} component={LoaderPage}/>
                                     <Route exact path={'/main-page'} component={MainPageBasicView}/>
                                     <Route exact path={'/main-page-advanced'} component={MainPageView}/>
+                                    <Route exact path={'/support'} component={SupportPage}/>
                                 </Switch>
                             </CSSTransition>
                         </TransitionGroup>

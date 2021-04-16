@@ -103,6 +103,7 @@ const SystemBlock = () => {
                     color={"secondary"}
                     className={s.mainNavButton}
                     size={'large'}
+                    onClick={() => history.push('/support')}
                 >support</Button>
                 <Button variant={'outlined'}
                         color={"secondary"}
