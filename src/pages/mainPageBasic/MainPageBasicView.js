@@ -5,6 +5,7 @@ import SystemBlock from "../../components/SystemBlock";
 import DiscMemory from "../mainPageAdvanced/components/DiscMemory";
 import IconButton from "@material-ui/core/IconButton";
 import FileCopyTwoToneIcon from '@material-ui/icons/FileCopyTwoTone';
+import SendCoinsDialog from "../mainPageAdvanced/components/sendCoins";
 
 const MainPageBasicView = () => {
     const s = stylesMainPageBasicView()
@@ -113,12 +114,17 @@ const MainPageBasicView = () => {
                             </div>
                         </Grid>
                     </Grid>
-                    <Button variant={'contained'} color={"secondary"}
-                    >Send Coins to Outside Wallet</Button>
+                    <SendCoinsDialog text={'Send Coins\n' +
+                    'to Outside Wallet'}/>
                     <div className={s.copyText}>
-                        <span className={s.input}>30641e79f42b4166cf3f4dca53a9e98e252bd62a9be8e73a0174dd70f28e522a</span>
-                        <span className={s.iconButton}><IconButton type="submit"  aria-label="search">
-                            <FileCopyTwoToneIcon />
+                        <span
+                            className={s.input}>30641e79f42b4166cf3f4dca53a9e98e252bd62a9be8e73a0174dd70f28e522a</span>
+                        <span className={s.iconButton}>
+                            <IconButton type="submit" aria-label="search"
+                                        onClick={() => {
+                                            navigator.clipboard.writeText("30641e79f42b4166cf3f4dca53a9e98e252bd62a9be8e73a0174dd70f28e522a")
+                                        }}>
+                            <FileCopyTwoToneIcon/>
                         </IconButton></span>
                     </div>
                 </Grid>

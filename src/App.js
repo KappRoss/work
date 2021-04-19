@@ -61,7 +61,7 @@ const App = () => {
                                     <Route exact path={'/loader'} component={LoaderPage}/>
                                     <Route exact path={'/main-page'} component={MainPageBasicView}/>
                                     <Route exact path={'/main-page-advanced'} component={MainPageView}/>
-                                    <Route exact path={'/support'} component={SupportPage}/>
+                                    {/*<Route exact path={'/support'} component={SupportPage}/>*/}
                                 </Switch>
                             </CSSTransition>
                         </TransitionGroup>

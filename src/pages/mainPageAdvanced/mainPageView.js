@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import classNames from "classnames";
 import DiscMemory from "./components/DiscMemory";
 import SystemBlock from "../../components/SystemBlock";
+import SendCoinsDialog from "./components/sendCoins";
 
 const MainPageView = () => {
     const s = mainPageUseStyle()
@@ -41,9 +42,7 @@ const MainPageView = () => {
                                             </Typography>
                                         </div>
                                     </div>
-                                    <Button variant={'contained'} color={'secondary'}>
-                                        send coins
-                                    </Button>
+                                    <SendCoinsDialog/>
                                 </div>
                             </Grid>
                             <Grid item xs={12} className={s.income}>
@@ -264,13 +263,13 @@ const MainPageView = () => {
                     <Grid item xs={12} className={s.storageAndNetwork}>
                         <div className={s.group}>
                             <div className={s.groupItems}>
-                                <Grid item xs={12} className={classNames(s.card, s.storage,)}>
+                                <Grid item xs={12} className={classNames(s.storage, s.borderBottom)}>
                                     <Typography variant={"button"} component={'p'}
                                                 className={classNames(s.title, s.storageTitle)}>
                                         Storage
                                     </Typography>
                                     <div className={s.discData}>
-                                        <Grid container  className={s.discDataItem}>
+                                        <Grid container className={s.discDataItem}>
                                             <Grid item xs={4}>
                                                 <Typography>Disc 1:</Typography>
                                             </Grid>
@@ -313,7 +312,7 @@ const MainPageView = () => {
                                             </Typography>
                                             <Typography className={s.time}>GB</Typography>
                                         </div>
-                                        <div  className={s.storageBlockItem}>
+                                        <div className={s.storageBlockItem}>
                                             <Typography>
                                                 Free:
                                             </Typography>
@@ -333,7 +332,7 @@ const MainPageView = () => {
                                         </div>
                                     </div>
                                 </Grid>
-                                <Grid item xs={12} className={classNames(s.card, s.storage, s.group)}>
+                                <Grid item xs={12} className={classNames(s.storage)}>
                                     <Typography variant={"button"} component={'p'}
                                                 className={classNames(s.title, s.storageTitle)} gutterBottom>
                                         Bandwidth
@@ -359,7 +358,7 @@ const MainPageView = () => {
                                                 </div>
                                             </Grid>
                                         </Grid>
-                                        <Grid item container xs={6} className={classNames(s.card, s.bandwidth)}>
+                                        <Grid item container xs={6} className={classNames(s.bandwidth)}>
                                             <Grid item xs={6} className={s.bandwidthTitles}>
                                                 <Typography>Upload:</Typography>
                                                 <Typography>Download:</Typography>
@@ -385,25 +384,35 @@ const MainPageView = () => {
                         </div>
                     </Grid>
                     <Grid item xs={12} className={s.contracts}>
-                        <div className={s.group} style={{height: "92%"}}>
+                        <div className={s.group}>
                             <Typography className={s.title} style={{textAlign: 'left', paddingLeft: 16}}
                                         component={'p'} variant={"button"}>Contracts</Typography>
-                            <Grid container className={classNames(s.card)}>
-                                <Grid item xs={4} className={s.contractsTitles}>
+                            <div className={s.contractsData}>
+                                <div>
                                     <Typography>Active:</Typography>
+                                    <Typography variant="h5" component={'p'} color={'secondary'}>4</Typography>
+                                </div>
+                                <div>
                                     <Typography>Next End Date:</Typography>
-                                </Grid>
-                                <Grid item xs={3} className={s.contractsData}>
-                                    <Typography variant="h5" component={'p'} color={'secondary'}>
-                                        4
-                                    </Typography>
-                                    <Typography variant="h5" component={'p'} color={'secondary'}>
-                                        23/7/2021
-                                    </Typography>
-                                </Grid>
-                            </Grid>
+                                    <Typography variant="h5" component={'p'} color={'secondary'}>23/7/2021</Typography>
+                                </div>
+                            </div>
                         </div>
 
+                    </Grid>
+                    <Grid item xs={12}>
+                        <div className={classNames(s.group, s.supportButtons)}>
+                            <Button fullWidth variant={'outlined'}
+                                    color={'secondary'} size={'large'}
+                            >Tech Support/RMA</Button>
+                            <Button fullWidth variant={'outlined'}
+                                    color={'secondary'} size={'large'}
+                            >FAQ</Button>
+                            <Button fullWidth variant={'outlined'}
+                                    color={'secondary'} size={'large'}
+                                    className={s.redButton}
+                            >System Reset</Button>
+                        </div>
                     </Grid>
                 </Grid>
                 <Grid item className={s.systemHealth}>

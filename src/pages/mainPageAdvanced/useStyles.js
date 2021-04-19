@@ -133,9 +133,13 @@ export const mainPageUseStyle = makeStyles(theme => ({
     storage: {
         display: 'flex',
         flexDirection: "column",
+        marginBottom: theme.spacing(2),
         "& > p": {
             textAlign: 'left'
         }
+    },
+    borderBottom: {
+        borderBottom: '2px solid'
     },
     storageTitle: {
         paddingLeft: theme.spacing(2)
@@ -166,7 +170,7 @@ export const mainPageUseStyle = makeStyles(theme => ({
     bandwidth: {
         display: 'flex',
         flexDirection: 'row',
-        height: "100%"
+        height: "100%",
     },
     bandwidthTitles: {
         display: 'flex',
@@ -212,26 +216,25 @@ export const mainPageUseStyle = makeStyles(theme => ({
         }
     },
     contractsData: {
-        textAlign: 'start'
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        textAlign: 'start',
+        marginBottom: theme.spacing(1),
+        "& > div": {
+            display: 'flex',
+            alignItems: 'baseline'
+        },
+        "& > div > p": {
+            paddingLeft: theme.spacing(1)
+        }
     },
 
-    // gridContainer: {
-    //     display: "grid",
-    //     gridTemplateColumns: "1fr 1fr",
-    //     gridTemplateRows: "2fr 1fr 0.51fr",
-    //     gap: "0px 0px",
-    //     gridTemplateAreas: `
-    //         "accounting storageAndNetwork"
-    //         "accounting contracts"
-    //         "systemHealth systemHealth"
-    //     `
-    // },
     accounting: {
         gridArea: "accounting"
     },
     contracts: {
         gridArea: "contracts",
-        height: 202
     },
     storageAndNetwork: {
         gridArea: "storageAndNetwork"
@@ -239,6 +242,17 @@ export const mainPageUseStyle = makeStyles(theme => ({
     systemHealth: {
         gridArea: "systemHealth",
         width: "100%"
+    },
+    supportButtons: {
+        display: 'flex',
+        justifyContent: "space-between",
+        "& > button": {
+            margin: theme.spacing(1),
+
+        }
+    },
+    redButton:{
+        color: theme.palette.error.main
     }
 
 }))
