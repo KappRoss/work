@@ -9,6 +9,7 @@ import SendCoinsDialog from "./components/sendCoins";
 import BandwidthSpeed from "./components/bandwidthSpeed";
 import IconButton from "@material-ui/core/IconButton";
 import FileCopyTwoToneIcon from "@material-ui/icons/FileCopyTwoTone";
+import Link from "@material-ui/core/Link";
 
 const MainPageAdvancedView = () => {
     const s = mainPageUseStyle()
@@ -99,7 +100,7 @@ const MainPageAdvancedView = () => {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item xs={12} className={classNames(s.income) }>
+                            <Grid item xs={12} className={classNames(s.income)}>
                                 <div className={classNames(s.groupBorderNone, s.incomeItems)}>
                                     <div>
                                         <Typography variant={'h5'}>
@@ -324,150 +325,178 @@ const MainPageAdvancedView = () => {
                     </div>
                 </Grid>
                 <Grid item md={6}>
-                    <Grid item xs={12} className={s.storageAndNetwork}>
-                        <div className={s.group}>
-                            <div className={s.groupItems}>
-                                <Grid item xs={12} className={classNames(s.storage, s.borderBottom)}>
-                                    <Typography variant={"button"} component={'p'}
-                                                className={classNames(s.title, s.storageTitle)}>
-                                        Storage
-                                    </Typography>
-                                    <div className={s.discData}>
-                                        <Grid container className={s.discDataItem}>
-                                            <Grid item xs={4}>
-                                                <Typography>Disc 1</Typography>
+                    <Grid container >
+                        <Grid item xs={12} className={s.storageAndNetwork}>
+                            <div className={s.group}>
+                                <div className={s.groupItems}>
+                                    <Grid item xs={12} className={classNames(s.storage, s.borderBottom, s.discBlock)}>
+                                        <Typography variant={"button"} component={'p'}
+                                                    className={classNames(s.title, s.storageTitle)}>
+                                            Storage
+                                        </Typography>
+                                        <div className={s.discData}>
+                                            <Grid container className={s.discDataItem}>
+                                                <Grid item xs={4}>
+                                                    <Typography>Disc 1</Typography>
+                                                </Grid>
+                                                <Grid item xs={8}>
+                                                    <DiscMemory value={30}/>
+                                                </Grid>
                                             </Grid>
-                                            <Grid item xs={8}>
-                                                <DiscMemory value={30}/>
+                                            <Grid className={s.discDataItem}>
+                                                <Grid item xs={4}>
+                                                    <Typography>Disc 2</Typography>
+                                                </Grid>
+                                                <Grid item xs={8}>
+                                                    <DiscMemory value={90}/>
+                                                </Grid>
                                             </Grid>
-                                        </Grid>
-                                        <Grid className={s.discDataItem}>
-                                            <Grid item xs={4}>
-                                                <Typography>Disc 2</Typography>
+                                            <Grid className={s.discDataItem}>
+                                                <Grid item xs={4}>
+                                                    <Typography>Disc 3</Typography>
+                                                </Grid>
+                                                <Grid item xs={8}>
+                                                    <DiscMemory value={54}/>
+                                                </Grid>
                                             </Grid>
-                                            <Grid item xs={8}>
-                                                <DiscMemory value={90}/>
+                                            <Grid className={s.discDataItem}>
+                                                <Grid item xs={4}>
+                                                    <Typography>Disc 4</Typography>
+                                                </Grid>
+                                                <Grid item xs={8}>
+                                                    <DiscMemory value={60}/>
+                                                </Grid>
                                             </Grid>
-                                        </Grid>
-                                        <Grid className={s.discDataItem}>
-                                            <Grid item xs={4}>
-                                                <Typography>Disc 3</Typography>
-                                            </Grid>
-                                            <Grid item xs={8}>
-                                                <DiscMemory value={54}/>
-                                            </Grid>
-                                        </Grid>
-                                        <Grid className={s.discDataItem}>
-                                            <Grid item xs={4}>
-                                                <Typography>Disc 4</Typography>
-                                            </Grid>
-                                            <Grid item xs={8}>
-                                                <DiscMemory value={60}/>
-                                            </Grid>
-                                        </Grid>
-                                    </div>
-                                    <div className={s.storageBlock}>
-                                        <div className={s.storageBlockItem}>
-                                            <Typography>
-                                                Used:
-                                            </Typography>
-                                            <Typography variant="h5" component={'p'} color={'secondary'}>
-                                                5.63
-                                            </Typography>
-                                            <Typography className={s.time}>GB</Typography>
                                         </div>
-                                        <div className={s.storageBlockItem}>
-                                            <Typography>
-                                                Free:
-                                            </Typography>
-                                            <Typography variant="h5" component={'p'} color={'secondary'}>
-                                                802.62
-                                            </Typography>
-                                            <Typography className={s.time}>GB</Typography>
+                                        <div className={s.storageBlock}>
+                                            <div className={s.storageBlockItem}>
+                                                <Typography>
+                                                    Used:
+                                                </Typography>
+                                                <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                    5.63
+                                                </Typography>
+                                                <Typography className={s.time}>GB</Typography>
+                                            </div>
+                                            <div className={s.storageBlockItem}>
+                                                <Typography>
+                                                    Free:
+                                                </Typography>
+                                                <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                    802.62
+                                                </Typography>
+                                                <Typography className={s.time}>GB</Typography>
+                                            </div>
+                                            <div className={s.storageBlockItem}>
+                                                <Typography>
+                                                    Last 30 Days:
+                                                </Typography>
+                                                <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                    802.62
+                                                </Typography>
+                                                <Typography className={s.time}>GB</Typography>
+                                            </div>
                                         </div>
-                                        <div className={s.storageBlockItem}>
-                                            <Typography>
-                                                Last 30 Days:
-                                            </Typography>
-                                            <Typography variant="h5" component={'p'} color={'secondary'}>
-                                                802.62
-                                            </Typography>
-                                            <Typography className={s.time}>GB</Typography>
-                                        </div>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={12} className={classNames(s.storage, s.borderBottom)}>
-                                    <Typography variant={"button"} component={'p'}
-                                                className={classNames(s.title, s.storageTitle)} gutterBottom>
-                                        Bandwidth
-                                    </Typography>
-                                    <Grid container className={s.bandwidthContainer}>
-                                        <Grid item container xs={6} className={classNames(s.card, s.bandwidth)}>
-                                            <Grid item xs={6} className={s.bandwidthTitles}>
-                                                <Typography>Sent:</Typography>
-                                                <Typography>Received:</Typography>
+                                    </Grid>
+                                    <Grid item xs={12} className={classNames(s.storage, s.borderBottom)}>
+                                        <Typography variant={"button"} component={'p'}
+                                                    className={classNames(s.title, s.storageTitle)} gutterBottom>
+                                            Bandwidth
+                                        </Typography>
+                                        <Grid container className={s.bandwidthContainer}>
+                                            <Grid item container xs={6} className={classNames(s.card, s.bandwidth)}>
+                                                <Grid item xs={6} className={s.bandwidthTitles}>
+                                                    <Typography>Sent:</Typography>
+                                                    <Typography>Received:</Typography>
+                                                </Grid>
+                                                <Grid item xs={6} className={s.bandwidthData}>
+                                                    <div className={s.subData}>
+                                                        <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                            5.63
+                                                        </Typography>
+                                                        <Typography className={s.time}>GB</Typography>
+                                                    </div>
+                                                    <div className={s.subData}>
+                                                        <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                            802.62
+                                                        </Typography>
+                                                        <Typography className={s.time}>GB</Typography>
+                                                    </div>
+                                                </Grid>
                                             </Grid>
-                                            <Grid item xs={6} className={s.bandwidthData}>
-                                                <div className={s.subData}>
-                                                    <Typography variant="h5" component={'p'} color={'secondary'}>
-                                                        5.63
-                                                    </Typography>
-                                                    <Typography className={s.time}>GB</Typography>
-                                                </div>
-                                                <div className={s.subData}>
-                                                    <Typography variant="h5" component={'p'} color={'secondary'}>
-                                                        802.62
-                                                    </Typography>
-                                                    <Typography className={s.time}>GB</Typography>
-                                                </div>
+                                            <Grid item container xs={6} className={classNames(s.bandwidth)}>
+                                                <BandwidthSpeed bandwidthTitles={s.bandwidthTitles}
+                                                                bandwidthData={s.bandwidthData}
+                                                                subData={s.subData} time={s.time}/>
                                             </Grid>
-                                        </Grid>
-                                        <Grid item container xs={6} className={classNames(s.bandwidth)}>
-                                            <BandwidthSpeed bandwidthTitles={s.bandwidthTitles}
-                                                            bandwidthData={s.bandwidthData}
-                                                            subData={s.subData} time={s.time}/>
                                         </Grid>
                                     </Grid>
-                                </Grid>
-                                <Grid item xs={12} className={s.contracts}>
-                                    <div>
-                                        <Typography className={s.title} style={{textAlign: 'left', paddingLeft: 16}}
-                                                    component={'p'} variant={"button"}>Contracts/Expiration</Typography>
-                                        <div className={s.contractsData}>
-                                            <div>
-                                                <Typography>Active:</Typography>
-                                                <Typography variant="h5" component={'p'} color={'secondary'}>4</Typography>
-                                            </div>
-                                            <div>
-                                                <Typography>Next End Date:</Typography>
-                                                <Typography variant="h5" component={'p'} color={'secondary'}>23/7/2021</Typography>
+                                    <Grid item xs={12} className={classNames(s.storage, s.contracts)}>
+                                        <div className={s.contractsSubData}>
+                                            <Typography className={s.title} style={{textAlign: 'left', paddingLeft: 16}}
+                                                        component={'p'} variant={"button"}>Contracts/Expiration
+                                            </Typography>
+                                            <div className={s.contractsStatus}>
+                                                <div className={s.statusItem}>
+                                                    <Typography>Active:</Typography>
+                                                    <Typography variant="h5" component={'p'} color={'secondary'}>4</Typography>
+                                                </div>
+                                                <div className={s.statusItem}>
+                                                    <Typography>Successful:</Typography>
+                                                    <Typography variant="h5" component={'p'} color={'secondary'}>200</Typography>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                </Grid>
-                            </div>
-                        </div>
-                    </Grid>
-
-                    <Grid item xs={12}>
-                        <div className={classNames(s.group, s.supportButtons)}>
-                            <Button fullWidth variant={'outlined'}
-                                    color={'secondary'} size={'large'}
-                            >Tech Support/RMA</Button>
-                            <Button fullWidth variant={'outlined'}
-                                    color={'secondary'} size={'large'}
-                            >FAQ</Button>
-                            <Button fullWidth variant={'outlined'}
-                                    color={'secondary'} size={'large'}
-                                    className={s.redButton}
-                            >
-                                <div className={s.redButtonSubText}>
-                                    System Reset
-                                    <span style={{fontSize: '0.5rem'}}>Use only if instructed, risk of entire wallet loss</span>
+                                        <div className={s.contractsSubData}>
+                                            <Typography style={{textAlign: 'left', paddingLeft: 16}}>
+                                                Next Three End Dates
+                                            </Typography>
+                                            <div className={s.contractsStatus}>
+                                                <div className={s.statusItem}>
+                                                    <Typography  component={'p'} color={'secondary'}>
+                                                        23/7/2021
+                                                    </Typography>
+                                                </div>
+                                                <div className={s.statusItem}>
+                                                    <Typography  component={'p'} color={'secondary'}>
+                                                        23/7/2021
+                                                    </Typography>
+                                                </div>
+                                                <div className={s.statusItem}>
+                                                    <Typography  component={'p'} color={'secondary'}>
+                                                        23/7/2021
+                                                    </Typography>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={s.contractsSubData}>
+                                            <Typography style={{textAlign: 'left', paddingLeft: 16}}>
+                                                <Link color={'inherit'} className={s.viewContractsLink}>View Contracts in Navigator</Link>
+                                            </Typography>
+                                        </div>
+                                    </Grid>
                                 </div>
-                            </Button>
-                        </div>
+                            </div>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <div className={classNames(s.group, s.supportButtons)}>
+                                <Button fullWidth variant={'outlined'}
+                                        color={'secondary'} size={'large'}
+                                >Tech Support/RMA</Button>
+                                <Button fullWidth variant={'outlined'}
+                                        color={'secondary'} size={'large'}
+                                >FAQ</Button>
+                                <Button fullWidth variant={'outlined'}
+                                        color={'secondary'} size={'large'}
+                                        className={s.redButton}
+                                >
+                                    <div className={s.redButtonSubText}>
+                                        System Reset
+                                        <span style={{fontSize: '0.5rem'}}>Use only if instructed, risk of entire wallet loss</span>
+                                    </div>
+                                </Button>
+                            </div>
+                        </Grid>
                     </Grid>
                 </Grid>
                 <Grid item className={s.systemHealth}>

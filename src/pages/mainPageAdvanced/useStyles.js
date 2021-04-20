@@ -149,7 +149,7 @@ export const mainPageUseStyle = makeStyles(theme => ({
     walletData: {
         display: "flex",
         justifyContent: 'space-between',
-        padding: theme.spacing(1,3,0,1)
+        padding: theme.spacing(1, 3, 0, 1)
     },
     walletValue: {
         display: "flex",
@@ -188,12 +188,20 @@ export const mainPageUseStyle = makeStyles(theme => ({
         display: 'flex',
         flexDirection: "column",
         marginBottom: theme.spacing(2),
+        paddingRight: theme.spacing(2),
         "& > p": {
             textAlign: 'left'
         }
     },
+    viewContractsLink: {
+        textDecoration: "underline",
+        marginTop: theme.spacing(2)
+    },
+    discBlock: {
+      paddingBottom: theme.spacing(2)
+    },
     borderBottom: {
-        borderBottom: '2px solid'
+        borderBottom: '1px solid #383838'
     },
     storageTitle: {
         paddingLeft: theme.spacing(2)
@@ -219,7 +227,7 @@ export const mainPageUseStyle = makeStyles(theme => ({
         // height: theme.spacing(2)
     },
     bandwidthContainer: {
-        paddingBottom: theme.spacing(2)
+        paddingBottom: theme.spacing(3)
         // paddingRight: theme.spacing(3)
     },
     bandwidth: {
@@ -285,21 +293,34 @@ export const mainPageUseStyle = makeStyles(theme => ({
         }
     },
 
-    accounting: {
-        gridArea: "accounting"
+    accounting: {},
+    contracts: {},
+    contractsStatus: {
+        display: "flex",
+        "& > div": {
+            paddingLeft: theme.spacing(2)
+        }
     },
-    contracts: {
-        gridArea: "contracts",
+    statusItem: {
+        display: 'flex',
+        alignItems: 'baseline',
+        '& > p': {
+            paddingLeft: theme.spacing(0.5)
+        }
     },
-    storageAndNetwork: {
-        gridArea: "storageAndNetwork"
+    contractsSubData: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
+    storageAndNetwork: {},
     systemHealth: {
-        gridArea: "systemHealth",
+
         width: "100%"
     },
     supportButtons: {
         display: 'flex',
+        height: "100%",
         justifyContent: "space-between",
         "& > button": {
             margin: theme.spacing(1),
