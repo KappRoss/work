@@ -1,11 +1,10 @@
 import React from 'react'
 import {stylesMainPageBasicView} from "./useStyles";
-import {Button, Grid, Typography} from "@material-ui/core";
+import {Grid, Typography} from "@material-ui/core";
 import SystemBlock from "../../components/SystemBlock";
 import DiscMemory from "../mainPageAdvanced/components/DiscMemory";
-import IconButton from "@material-ui/core/IconButton";
-import FileCopyTwoToneIcon from '@material-ui/icons/FileCopyTwoTone';
 import SendCoinsDialog from "../mainPageAdvanced/components/sendCoins";
+import classNames from "classnames";
 
 const MainPageBasicView = () => {
     const s = stylesMainPageBasicView()
@@ -23,16 +22,16 @@ const MainPageBasicView = () => {
                                 <Typography>
                                     To Date
                                 </Typography>
-                                <div className={s.currencyRight}>
-                                    <Typography color={"secondary"}>
+                                <div className={classNames(s.currencyRight, s.moneyBlock)}>
+                                    <Typography variant={'h5'} color={"secondary"}>
                                         11,000
                                     </Typography>
                                     <Typography className={s.time}>
                                         SCP
                                     </Typography>
                                 </div>
-                                <div className={s.currencyRight}>
-                                    <Typography color={'secondary'}>
+                                <div className={classNames(s.currencyRight, s.moneyBlock)}>
+                                    <Typography variant={'h5'} color={'secondary'}>
                                         $1,231.45
                                     </Typography>
                                     <Typography className={s.time}>
@@ -41,70 +40,21 @@ const MainPageBasicView = () => {
                                 </div>
                             </div>
                         </Grid>
-
                         <Grid item xs={6}>
                             <div className={s.walletLeft}>
                                 <Typography>
                                     Balance
                                 </Typography>
-                                <div className={s.currencyLeft}>
-                                    <Typography color={"secondary"}>
+                                <div className={classNames(s.currencyLeft, s.moneyBlock)}>
+                                    <Typography variant={'h5'} color={"secondary"}>
                                         11,000
                                     </Typography>
                                     <Typography className={s.time}>
                                         SCP
                                     </Typography>
                                 </div>
-                                <div className={s.currencyLeft}>
-                                    <Typography color={'secondary'}>
-                                        $1,231.45
-                                    </Typography>
-                                    <Typography className={s.time}>
-                                        USD
-                                    </Typography>
-                                </div>
-                            </div>
-                        </Grid>
-
-                        <Grid item xs={6} className={s.forDivider}>
-                            <div className={s.walletRight}>
-                                <Typography>
-                                    Last 30 Days
-                                </Typography>
-                                <div className={s.currencyRight}>
-                                    <Typography color={"secondary"}>
-                                        11,000
-                                    </Typography>
-                                    <Typography className={s.time}>
-                                        SCP
-                                    </Typography>
-                                </div>
-                                <div className={s.currencyRight}>
-                                    <Typography color={'secondary'}>
-                                        $1,231.45
-                                    </Typography>
-                                    <Typography className={s.time}>
-                                        USD
-                                    </Typography>
-                                </div>
-                            </div>
-                        </Grid>
-
-                        <Grid item xs={6}>
-                            <div className={s.walletLeft}>
-                                <Typography>
-                                    Last 30 Days
-                                </Typography>
-                                <div className={s.currencyLeft}>
-                                    <Typography color={"secondary"}>
-                                        11,000
-                                    </Typography>
-                                    <Typography className={s.time}>
-                                        SCP
-                                    </Typography>
-                                </div>
-                                <div className={s.currencyLeft}>
-                                    <Typography color={'secondary'}>
+                                <div className={classNames(s.currencyLeft, s.moneyBlock)}>
+                                    <Typography variant={'h5'} color={'secondary'}>
                                         $1,231.45
                                     </Typography>
                                     <Typography className={s.time}>
@@ -114,19 +64,8 @@ const MainPageBasicView = () => {
                             </div>
                         </Grid>
                     </Grid>
-                    <SendCoinsDialog text={'Send Coins\n' +
-                    'to Outside Wallet'}/>
-                    <div className={s.copyText}>
-                        <span
-                            className={s.input}>30641e79f42b4166cf3f4dca53a9e98e252bd62a9be8e73a0174dd70f28e522a</span>
-                        <span className={s.iconButton}>
-                            <IconButton type="submit" aria-label="search"
-                                        onClick={() => {
-                                            navigator.clipboard.writeText("30641e79f42b4166cf3f4dca53a9e98e252bd62a9be8e73a0174dd70f28e522a")
-                                        }}>
-                            <FileCopyTwoToneIcon/>
-                        </IconButton></span>
-                    </div>
+                    <SendCoinsDialog text={'Send Coins'}/>
+
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Typography variant={'h2'} className={s.title}>

@@ -87,32 +87,19 @@ export const stylesMainPageBasicView = makeStyles(theme => ({
         display: "flex",
         justifyContent: "flex-start",
         "& > p": {
-            paddingRight: 5
+            paddingLeft: theme.spacing(0.5)
         }
     },
     currencyRight: {
         display: "flex",
         justifyContent: "flex-end",
         "& > p": {
-            paddingLeft: 5
+            paddingLeft: theme.spacing(0.5)
         }
     },
-    ////// copyText
-    copyText: {
-        marginTop: theme.spacing(4),
-        display: "flex",
-        minWidth: 0,
-        alignItems: "center",
-        maxWidth: '-webkit-fill-available'
-    },
-    input: {
-        marginLeft: theme.spacing(1),
-        textOverflow: "ellipsis",
-        whiteSpace: "nowrap",
-        overflow: "hidden",
-    },
-    iconButton: {
-        flexShrink: 0
+    moneyBlock: {
+      display: 'flex',
+      alignItems: 'baseline'
     },
     /////
     system: {

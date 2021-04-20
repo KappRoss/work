@@ -14,6 +14,10 @@ import MaskedInput from 'react-text-mask';
 import NumberFormat from 'react-number-format';
 
 const useStyle = makeStyles(theme => ({
+    container: {
+      display: "grid",
+        // width: "95%"
+    },
     buttonBlock: {
         display: "flex",
         flexDirection: 'column',
@@ -141,8 +145,8 @@ export default function SendCoinsDialog(props) {
     };
 
     return (
-        <div>
-            <Button variant={'contained'} color={'secondary'} onClick={handleClickOpen}>
+        <div className={s.container} style={{width: props.width}}>
+            <Button variant={'contained'} color={'secondary'} size={'large'} onClick={handleClickOpen}>
                 {props.text || 'send coins'}
             </Button>
             <Dialog open={open} onClose={handleClose} classes={{paper: s.border}}  aria-labelledby="form-dialog-title">

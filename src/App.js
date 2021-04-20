@@ -6,13 +6,12 @@ import {Container, CssBaseline} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import React from "react";
 import SettingsPage from './pages/settingsPage';
-import MainPageView from "./pages/mainPageAdvanced";
+import MainPageAdvancedView from "./pages/mainPageAdvanced";
 import LoaderPage from "./pages/loaderPage";
 import WelcomePage from "./pages/welcomePage";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import SeedPage from "./pages/seedPage";
 import MainPageBasicView from "./pages/mainPageBasic";
-import SupportPage from "./pages/supportPage";
 
 const useStyle = makeStyles(theme => ({
     icon: {
@@ -60,8 +59,7 @@ const App = () => {
                                     <Route exact path={'/settings'} component={SettingsPage}/>
                                     <Route exact path={'/loader'} component={LoaderPage}/>
                                     <Route exact path={'/main-page'} component={MainPageBasicView}/>
-                                    <Route exact path={'/main-page-advanced'} component={MainPageView}/>
-                                    {/*<Route exact path={'/support'} component={SupportPage}/>*/}
+                                    <Route exact path={'/main-page-advanced'} component={MainPageAdvancedView}/>
                                 </Switch>
                             </CSSTransition>
                         </TransitionGroup>

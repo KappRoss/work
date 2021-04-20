@@ -5,7 +5,7 @@
 // import UpTimer from "./uptimer";
 // import Divider from "@material-ui/core/Divider";
 //
-// const MainPageView = () => {
+// const MainPageAdvancedView = () => {
 //     const s = mainPageUseStyle()
 //
 //     return (
@@ -412,4 +412,4 @@
 //     )
 // }
 //
-// export default MainPageView
+// export default MainPageAdvancedView

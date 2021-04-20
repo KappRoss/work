@@ -27,6 +27,9 @@ export const mainPageUseStyle = makeStyles(theme => ({
         borderColor: theme.palette.secondary.main,
         borderRadius: theme.spacing(1)
     },
+    itemWallet: {
+        paddingLeft: theme.spacing(2)
+    },
     groupBorderNone: {
         margin: theme.spacing(1),
         padding: theme.spacing(1),
@@ -41,17 +44,58 @@ export const mainPageUseStyle = makeStyles(theme => ({
         color: theme.palette.secondary.dark
     },
 
+    ////// copyText
+    copyText: {
+        // marginTop: theme.spacing(1),
+        display: "flex",
+        minWidth: 0,
+        alignItems: "center",
+        maxWidth: '-webkit-fill-available'
+    },
+    input: {
+        // marginLeft: theme.spacing(1),
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+        color: theme.palette.secondary.main
+    },
+    iconButton: {
+        flexShrink: 0
+    },
+
     //////start accounting block/////////
     wallet: {
         textAlign: 'end',
-        marginBottom: theme.spacing(1)
+        // marginBottom: theme.spacing(1)
+    },
+    walletTitle: {
+        textAlign: "left"
+    },
+    coinsBlock: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'end',
+    },
+    coinsText: {
+        paddingTop: theme.spacing(2)
     },
     walletItems: {
         display: "flex",
         flexDirection: 'row',
         justifyContent: "space-between"
     },
-    income: {},
+    walletTitles: {
+        display: "flex",
+        flexDirection: 'column',
+        alignItems: "flex-end"
+    },
+    income: {
+        textAlign: "end"
+    },
+    incomeData: {
+        display: 'flex',
+        flexDirection: 'row'
+    },
     incomeItems: {
         display: "flex",
         flexDirection: 'row',
@@ -62,6 +106,10 @@ export const mainPageUseStyle = makeStyles(theme => ({
         display: "flex",
         flexDirection: 'row',
         justifyContent: "space-between"
+    },
+    incentivesData: {
+        display: 'flex',
+        flexDirection: 'row'
     },
     autoConfiguration: {},
     autoConfigurationItems: {
@@ -99,12 +147,18 @@ export const mainPageUseStyle = makeStyles(theme => ({
         justifyContent: 'center'
     },
     walletData: {
-        border: `2px solid `,
-        borderColor: theme.palette.secondary.main,
-        borderRadius: theme.spacing(1),
-        padding: theme.spacing(1, 2, 2, 2),
-        minWidth: 260,
-        margin: theme.spacing(1)
+        display: "flex",
+        justifyContent: 'space-between',
+        padding: theme.spacing(1,3,0,1)
+    },
+    walletValue: {
+        display: "flex",
+        flexDirection: 'column',
+        justifyContent: 'center',
+        "& > div > p": {
+            width: '100%',
+            textAlign: 'start'
+        }
     },
     walletDataItem: {},
     currency: {
@@ -165,6 +219,7 @@ export const mainPageUseStyle = makeStyles(theme => ({
         // height: theme.spacing(2)
     },
     bandwidthContainer: {
+        paddingBottom: theme.spacing(2)
         // paddingRight: theme.spacing(3)
     },
     bandwidth: {
@@ -251,8 +306,13 @@ export const mainPageUseStyle = makeStyles(theme => ({
 
         }
     },
-    redButton:{
-        color: theme.palette.error.main
+    redButton: {
+        color: theme.palette.error.main,
+
+    },
+    redButtonSubText: {
+        display: "flex",
+        flexDirection: 'column',
     }
 
 }))

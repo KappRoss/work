@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
         display: "flex"
     },
     changePort: {
-        color: theme.palette.error.main
+        textDecoration: "underline"
     }
 }))
 
@@ -80,15 +80,14 @@ const SystemBlock = () => {
                     </div>
                     <div className={s.storageItemsData}>
                         <Typography>Ports:</Typography>
-                        <Typography variant="h5" color={"secondary"}>Open</Typography>
+                        <Typography variant="h5" color={"secondary"}>Open 4282, 4283</Typography>
                     </div>
-                    {location.pathname === "/main-page-advanced"
-                    && <Link component={'button'} className={s.changePort}>Change Port Number</Link>}
+                    <Link component={'button'}  color={'inherit'} className={s.changePort}>Change Port Number</Link>
                 </div>
                 <div className={s.infoBlockItem}>
                     <div className={s.storageItemsData}>
                         <Typography>
-                            Uptime
+                            Uptime:
                         </Typography>
                         <UpTimer/>
                     </div>
@@ -103,13 +102,6 @@ const SystemBlock = () => {
                 </div>
             </div>
             <div className={s.navButtonBlock}>
-                {/*<Button*/}
-                {/*    variant={'outlined'}*/}
-                {/*    color={"secondary"}*/}
-                {/*    className={s.mainNavButton}*/}
-                {/*    size={'large'}*/}
-                {/*    onClick={() => history.push('/support')}*/}
-                {/*>support</Button>*/}
                 <Button variant={'outlined'}
                         color={"secondary"}
                         className={s.mainNavButton}
