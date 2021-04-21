@@ -1,6 +1,6 @@
-import {makeStyles} from "@material-ui/core/styles"
+import {makeStyles} from "@material-ui/core";
 
-export const supervisorPassPageStyles = makeStyles((theme) => ({
+export const createPasswordStyle = makeStyles(theme => ({
     root: {
         position: 'absolute',
         top: 0,

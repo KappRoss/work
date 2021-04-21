@@ -17,6 +17,10 @@ export const mainPageUseStyle = makeStyles(theme => ({
             textAlign: 'center'
         },
     },
+    flexRow: {
+        display: 'flex',
+        flexDirection: 'row'
+    },
     title: {
         padding: theme.spacing(1, 0)
     },
@@ -102,6 +106,10 @@ export const mainPageUseStyle = makeStyles(theme => ({
         justifyContent: "space-between"
     },
     incentives: {},
+    incentivesLink: {
+      textDecoration: 'underline',
+      cursor: 'pointer'
+    },
     incentivesItems: {
         display: "flex",
         flexDirection: 'row',
@@ -195,10 +203,10 @@ export const mainPageUseStyle = makeStyles(theme => ({
     },
     viewContractsLink: {
         textDecoration: "underline",
+        cursor: 'pointer',
         marginTop: theme.spacing(2)
     },
     discBlock: {
-      paddingBottom: theme.spacing(2)
     },
     borderBottom: {
         borderBottom: '1px solid #383838'
@@ -208,27 +216,31 @@ export const mainPageUseStyle = makeStyles(theme => ({
     },
     storageBlock: {
         display: "flex",
-        justifyContent: "space-around",
+        justifyContent: "space-between",
         alignItems: "baseline",
-        padding: theme.spacing(1, 0),
+        padding: theme.spacing(1,0),
+        margin: theme.spacing(1,0,1,2),
         "& p": {
             paddingRight: 3,
         },
+    },
+    moreDetail: {
+        textDecoration: 'underline',
+        cursor: 'pointer'
     },
     storageBlockItem: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        alignItems: 'baseline'
+        alignItems: 'baseline',
+        paddingRight: theme.spacing(2)
     },
     discDataItem: {
         display: "flex",
         padding: theme.spacing(2, 0)
-        // height: theme.spacing(2)
     },
     bandwidthContainer: {
         paddingBottom: theme.spacing(3)
-        // paddingRight: theme.spacing(3)
     },
     bandwidth: {
         display: 'flex',
@@ -315,25 +327,25 @@ export const mainPageUseStyle = makeStyles(theme => ({
     },
     storageAndNetwork: {},
     systemHealth: {
-
         width: "100%"
     },
     supportButtons: {
         display: 'flex',
         height: "100%",
+        padding: theme.spacing(2),
         justifyContent: "space-between",
         "& > button": {
             margin: theme.spacing(1),
-
         }
+    },
+    supportButtonsItem: {
+      height: '100%'
     },
     redButton: {
         color: theme.palette.error.main,
-
     },
     redButtonSubText: {
         display: "flex",
         flexDirection: 'column',
     }
-
 }))

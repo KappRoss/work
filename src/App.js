@@ -12,6 +12,8 @@ import WelcomePage from "./pages/welcomePage";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import SeedPage from "./pages/seedPage";
 import MainPageBasicView from "./pages/mainPageBasic";
+import CreatePasswordPage from "./pages/createPassword";
+import PortNumberPage from "./pages/portNumberPage";
 
 const useStyle = makeStyles(theme => ({
     icon: {
@@ -55,7 +57,9 @@ const App = () => {
                                 <Switch location={location}>
                                     <Route exact path={'/'} component={WelcomePage}/>
                                     <Route exact path={'/supervisor-password'} component={SupervisorPassPage}/>
+                                    <Route exact path={'/create-supervisor-password'} component={CreatePasswordPage}/>
                                     <Route exact path={'/seed'} component={SeedPage}/>
+                                    <Route exact path={'/set-port'} component={PortNumberPage}/>
                                     <Route exact path={'/settings'} component={SettingsPage}/>
                                     <Route exact path={'/loader'} component={LoaderPage}/>
                                     <Route exact path={'/main-page'} component={MainPageBasicView}/>

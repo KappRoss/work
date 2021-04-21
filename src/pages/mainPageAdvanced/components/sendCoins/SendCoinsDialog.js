@@ -6,17 +6,22 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import {Checkbox, FormControlLabel, makeStyles, Typography} from "@material-ui/core";
+import {Checkbox, FormControlLabel, IconButton, makeStyles, Typography} from "@material-ui/core";
 import classNames from "classnames";
 import Box from "@material-ui/core/Box";
 import PropTypes from "prop-types";
 import MaskedInput from 'react-text-mask';
 import NumberFormat from 'react-number-format';
+import CloseIcon from '@material-ui/icons/Close';
 
 const useStyle = makeStyles(theme => ({
     container: {
       display: "grid",
         // width: "95%"
+    },
+    closeItem: {
+      display: 'flex',
+      justifyContent: 'flex-end'
     },
     buttonBlock: {
         display: "flex",
@@ -151,6 +156,11 @@ export default function SendCoinsDialog(props) {
             </Button>
             <Dialog open={open} onClose={handleClose} classes={{paper: s.border}}  aria-labelledby="form-dialog-title">
                 <Box>
+                    <div className={s.closeItem}>
+                        <IconButton onClick={handleClose}>
+                            <CloseIcon/>
+                        </IconButton>
+                    </div>
                     <DialogTitle id="form-dialog-title" className={s.title}>Send Coins To</DialogTitle>
                     <DialogContent className={classNames(s.content )}>
                         <DialogContentText>

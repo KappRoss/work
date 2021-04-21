@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Checkbox, FormControlLabel, Typography} from "@material-ui/core";
+import {Button, Checkbox, FormControlLabel, Typography, Link} from "@material-ui/core";
 import {mainPageUseStyle} from "./useStyles";
 import Grid from "@material-ui/core/Grid";
 import classNames from "classnames";
@@ -9,7 +9,9 @@ import SendCoinsDialog from "./components/sendCoins";
 import BandwidthSpeed from "./components/bandwidthSpeed";
 import IconButton from "@material-ui/core/IconButton";
 import FileCopyTwoToneIcon from "@material-ui/icons/FileCopyTwoTone";
-import Link from "@material-ui/core/Link";
+import {Link as LinkTo} from "react-router-dom";
+import CopySnackbar from "./components/copySnackbar";
+import ResetDialog from "./components/resetDialog";
 
 const MainPageAdvancedView = () => {
     const s = mainPageUseStyle()
@@ -85,16 +87,10 @@ const MainPageAdvancedView = () => {
                                                 Add Coins to Your Xa-Miner:
                                             </Typography>
                                             <div className={s.copyText}>
-                                        <span className={s.input}>
-                                            30641e79f42b4166cf3f4dca53a9e98e252bd62a9be8e73a0174dd70f28e522a
-                                        </span>
-                                                <span className={s.iconButton}>
-                                            <IconButton type="submit" aria-label="search"
-                                                        onClick={() => {
-                                                            navigator.clipboard.writeText("30641e79f42b4166cf3f4dca53a9e98e252bd62a9be8e73a0174dd70f28e522a")
-                                                        }}><FileCopyTwoToneIcon/>
-                                            </IconButton>
-                                        </span>
+                                                <span className={s.input}>
+                                                    30641e79f42b4166cf3f4dca53a9e98e252bd62a9be8e73a0174dd70f28e522a
+                                                </span>
+                                                <span className={s.iconButton}><CopySnackbar/></span>
                                             </div>
                                         </div>
                                     </Grid>
@@ -179,7 +175,9 @@ const MainPageAdvancedView = () => {
                                 <div className={classNames(s.groupBorderNone, s.incentivesItems)}>
                                     <div>
                                         <Typography variant={'h5'}>
-                                            Incentives
+                                            <Link color={'inherit'} className={s.incentivesLink}>
+                                                Incentives
+                                            </Link>
                                         </Typography>
                                     </div>
                                     <div className={s.incentivesData}>
@@ -267,65 +265,65 @@ const MainPageAdvancedView = () => {
                                 </div>
                             </Grid>
                             <Grid item xs={12} className={classNames(s.prices, s.groupBorderNone)}>
-                                <Grid xs={7} item className={s.pricesTitle}>
+                                <Grid xs={9} item className={s.pricesTitle}>
                                     <Typography>Storage Price (SCP/TB/Month):</Typography>
                                     <Typography>Collateral Price (SCP/TB/Month):</Typography>
                                     <Typography>Max Collateral (SCP/Contract):</Typography>
-                                    <Typography>Download Bandwidth Price (SCP/TB):</Typography>
-                                    <Typography>Upload Bandwidth Price (SCP/TB):</Typography>
-                                    <Typography>Max Duration:</Typography>
-                                    <Typography>Contract Creation Fee (SCP):</Typography>
+                                    <Typography>Download Bandwidth (SCP/TB):</Typography>
+                                    <Typography>Upload Bandwidth (SCP/TB):</Typography>
+                                    <Typography>Max Duration (week):</Typography>
+                                    {/*<Typography>Contract Creation Fee (SCP):</Typography>*/}
                                 </Grid>
-                                <Grid xs={4} item className={s.pricesData}>
+                                <Grid xs={3} item className={s.pricesData}>
                                     <div className={s.subData}>
                                         <Typography variant="h5" component={'p'} color={'secondary'}>
                                             20
                                         </Typography>
-                                        <Typography className={s.time}>SCP</Typography>
+                                        {/*<Typography className={s.time}>SCP</Typography>*/}
                                     </div>
                                     <div className={s.subData}>
                                         <Typography variant="h5" component={'p'} color={'secondary'}>
                                             20
                                         </Typography>
-                                        <Typography className={s.time}>SCP</Typography>
+                                        {/*<Typography className={s.time}>SCP</Typography>*/}
                                     </div>
                                     <div className={s.subData}>
                                         <Typography variant="h5" component={'p'} color={'secondary'}>
                                             1.103k
                                         </Typography>
-                                        <Typography className={s.time}>SCP</Typography>
+                                        {/*<Typography className={s.time}>SCP</Typography>*/}
                                     </div>
                                     <div className={s.subData}>
                                         <Typography variant="h5" component={'p'} color={'secondary'}>
                                             100
                                         </Typography>
-                                        <Typography className={s.time}>SCP</Typography>
+                                        {/*<Typography className={s.time}>SCP</Typography>*/}
                                     </div>
                                     <div className={s.subData}>
                                         <Typography variant="h5" component={'p'} color={'secondary'}>
                                             100
                                         </Typography>
-                                        <Typography className={s.time}>SCP</Typography>
+                                        {/*<Typography className={s.time}>SCP</Typography>*/}
                                     </div>
                                     <div className={s.subData}>
                                         <Typography variant="h5" component={'p'} color={'secondary'}>
                                             12
                                         </Typography>
-                                        <Typography className={s.time}>week</Typography>
+                                        {/*<Typography className={s.time}>week</Typography>*/}
                                     </div>
-                                    <div className={s.subData}>
-                                        <Typography variant="h5" component={'p'} color={'secondary'}>
-                                            0.00015
-                                        </Typography>
-                                        <Typography className={s.time}>SCP</Typography>
-                                    </div>
+                                    {/*<div className={s.subData}>*/}
+                                    {/*    <Typography variant="h5" component={'p'} color={'secondary'}>*/}
+                                    {/*        0.00015*/}
+                                    {/*    </Typography>*/}
+                                    {/*    <Typography className={s.time}>SCP</Typography>*/}
+                                    {/*</div>*/}
                                 </Grid>
                             </Grid>
                         </Grid>
                     </div>
                 </Grid>
                 <Grid item md={6}>
-                    <Grid container >
+                    <Grid container>
                         <Grid item xs={12} className={s.storageAndNetwork}>
                             <div className={s.group}>
                                 <div className={s.groupItems}>
@@ -368,33 +366,29 @@ const MainPageAdvancedView = () => {
                                                 </Grid>
                                             </Grid>
                                         </div>
-                                        <div className={s.storageBlock}>
-                                            <div className={s.storageBlockItem}>
-                                                <Typography>
-                                                    Used:
-                                                </Typography>
-                                                <Typography variant="h5" component={'p'} color={'secondary'}>
-                                                    5.63
-                                                </Typography>
-                                                <Typography className={s.time}>GB</Typography>
+                                        <div className={classNames(s.storageBlock)}>
+                                            <div className={s.flexRow}>
+                                                <div className={s.storageBlockItem}>
+                                                    <Typography>
+                                                        Used:
+                                                    </Typography>
+                                                    <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                        5.63
+                                                    </Typography>
+                                                    <Typography className={s.time}>GB</Typography>
+                                                </div>
+                                                <div className={s.storageBlockItem}>
+                                                    <Typography>
+                                                        Free:
+                                                    </Typography>
+                                                    <Typography variant="h5" component={'p'} color={'secondary'}>
+                                                        802.62
+                                                    </Typography>
+                                                    <Typography className={s.time}>GB</Typography>
+                                                </div>
                                             </div>
-                                            <div className={s.storageBlockItem}>
-                                                <Typography>
-                                                    Free:
-                                                </Typography>
-                                                <Typography variant="h5" component={'p'} color={'secondary'}>
-                                                    802.62
-                                                </Typography>
-                                                <Typography className={s.time}>GB</Typography>
-                                            </div>
-                                            <div className={s.storageBlockItem}>
-                                                <Typography>
-                                                    Last 30 Days:
-                                                </Typography>
-                                                <Typography variant="h5" component={'p'} color={'secondary'}>
-                                                    802.62
-                                                </Typography>
-                                                <Typography className={s.time}>GB</Typography>
+                                            <div className={s.storageBlockItem} style={{padding: 0}}>
+                                                <Link color={'inherit'} className={s.moreDetail}>More detail</Link>
                                             </div>
                                         </div>
                                     </Grid>
@@ -439,39 +433,42 @@ const MainPageAdvancedView = () => {
                                             <div className={s.contractsStatus}>
                                                 <div className={s.statusItem}>
                                                     <Typography>Active:</Typography>
-                                                    <Typography variant="h5" component={'p'} color={'secondary'}>4</Typography>
+                                                    <Typography variant="h5" component={'p'}
+                                                                color={'secondary'}>4</Typography>
                                                 </div>
                                                 <div className={s.statusItem}>
                                                     <Typography>Successful:</Typography>
-                                                    <Typography variant="h5" component={'p'} color={'secondary'}>200</Typography>
+                                                    <Typography variant="h5" component={'p'}
+                                                                color={'secondary'}>200</Typography>
                                                 </div>
                                             </div>
                                         </div>
+                                        {/*<div className={s.contractsSubData}>*/}
+                                        {/*    <Typography style={{textAlign: 'left', paddingLeft: 16}}>*/}
+                                        {/*        Next Three End Dates*/}
+                                        {/*    </Typography>*/}
+                                        {/*    <div className={s.contractsStatus}>*/}
+                                        {/*        <div className={s.statusItem}>*/}
+                                        {/*            <Typography  component={'p'} color={'secondary'}>*/}
+                                        {/*                23/7/2021*/}
+                                        {/*            </Typography>*/}
+                                        {/*        </div>*/}
+                                        {/*        <div className={s.statusItem}>*/}
+                                        {/*            <Typography  component={'p'} color={'secondary'}>*/}
+                                        {/*                23/7/2021*/}
+                                        {/*            </Typography>*/}
+                                        {/*        </div>*/}
+                                        {/*        <div className={s.statusItem}>*/}
+                                        {/*            <Typography  component={'p'} color={'secondary'}>*/}
+                                        {/*                23/7/2021*/}
+                                        {/*            </Typography>*/}
+                                        {/*        </div>*/}
+                                        {/*    </div>*/}
+                                        {/*</div>*/}
                                         <div className={s.contractsSubData}>
                                             <Typography style={{textAlign: 'left', paddingLeft: 16}}>
-                                                Next Three End Dates
-                                            </Typography>
-                                            <div className={s.contractsStatus}>
-                                                <div className={s.statusItem}>
-                                                    <Typography  component={'p'} color={'secondary'}>
-                                                        23/7/2021
-                                                    </Typography>
-                                                </div>
-                                                <div className={s.statusItem}>
-                                                    <Typography  component={'p'} color={'secondary'}>
-                                                        23/7/2021
-                                                    </Typography>
-                                                </div>
-                                                <div className={s.statusItem}>
-                                                    <Typography  component={'p'} color={'secondary'}>
-                                                        23/7/2021
-                                                    </Typography>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className={s.contractsSubData}>
-                                            <Typography style={{textAlign: 'left', paddingLeft: 16}}>
-                                                <Link color={'inherit'} className={s.viewContractsLink}>View Contracts in Navigator</Link>
+                                                <Link color={'inherit'} className={s.viewContractsLink}>View Contracts
+                                                    in Navigator</Link>
                                             </Typography>
                                         </div>
                                     </Grid>
@@ -480,21 +477,42 @@ const MainPageAdvancedView = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <div className={classNames(s.group, s.supportButtons)}>
-                                <Button fullWidth variant={'outlined'}
-                                        color={'secondary'} size={'large'}
-                                >Tech Support/RMA</Button>
-                                <Button fullWidth variant={'outlined'}
-                                        color={'secondary'} size={'large'}
-                                >FAQ</Button>
-                                <Button fullWidth variant={'outlined'}
-                                        color={'secondary'} size={'large'}
-                                        className={s.redButton}
-                                >
-                                    <div className={s.redButtonSubText}>
-                                        System Reset
-                                        <span style={{fontSize: '0.5rem'}}>Use only if instructed, risk of entire wallet loss</span>
-                                    </div>
-                                </Button>
+                                <Grid container spacing={2}>
+                                    <Grid item xs={4}>
+                                        <Link target="_blank"
+                                              href={'https://scpri.me/xaminer/support'}
+                                              rel="noreferrer"
+                                              color={'secondary'}
+                                        >
+                                            <Button fullWidth variant={'outlined'}
+                                                    color={'secondary'} size={'large'}
+                                                    className={s.supportButtonsItem}
+                                            >
+                                                Tech Support/RMA
+                                            </Button>
+                                        </Link>
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Link target="_blank"
+                                              href={'https://scpri.me/xaminer/FAQ'}
+                                              rel="noreferrer"
+                                              color={'secondary'}
+                                        >
+                                            <Button fullWidth variant={'outlined'}
+                                                    color={'secondary'} size={'large'}
+                                                    className={s.supportButtonsItem}
+                                            >
+                                                FAQ</Button>
+                                        </Link>
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <ResetDialog redButton={s.redButton}
+                                                     supportButtonsItem={s.supportButtonsItem}
+                                                     redButtonSubText={s.redButtonSubText}
+                                        />
+                                    </Grid>
+                                </Grid>
+
                             </div>
                         </Grid>
                     </Grid>

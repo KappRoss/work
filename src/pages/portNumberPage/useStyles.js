@@ -1,6 +1,6 @@
-import {makeStyles} from "@material-ui/core/styles"
+import {makeStyles} from "@material-ui/core";
 
-export const supervisorPassPageStyles = makeStyles((theme) => ({
+export const portNumbersPageStyles = makeStyles(theme => ({
     root: {
         position: 'absolute',
         top: 0,
@@ -45,13 +45,9 @@ export const supervisorPassPageStyles = makeStyles((theme) => ({
         padding: theme.spacing(3, 0)
     },
     subTitle: {
-        display: "flex",
         padding: theme.spacing(1, 0, 1),
-        '& > p': {
-            paddingLeft: 10,
-            alignSelf: "center",
-            fontWeight: 'bold'
-        }
+        maxWidth: 600
+
     },
     button: {
         margin: theme.spacing(1, 0, 1),

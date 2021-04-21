@@ -8,7 +8,7 @@ const WelcomePage = () => {
     const history = useHistory();
 
     const nextStep = () => {
-        history.push("/supervisor-password")
+        history.push("/create-supervisor-password")  //supervisor-password
     }
 
     return (

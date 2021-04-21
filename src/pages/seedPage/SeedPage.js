@@ -82,7 +82,7 @@ const SeedPage = (props) => {
         if (firstStep) {
             setFirstStep(!firstStep)
         } else {
-            history.push("/loader")
+            history.push("/set-port")
         }
     }
     return (
