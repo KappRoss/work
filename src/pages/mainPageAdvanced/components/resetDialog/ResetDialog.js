@@ -6,7 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { IconButton, makeStyles, Typography} from "@material-ui/core";
+import {Divider, IconButton, makeStyles, Typography} from "@material-ui/core";
 import classNames from "classnames";
 import Box from "@material-ui/core/Box";
 import CloseIcon from '@material-ui/icons/Close';
@@ -21,8 +21,8 @@ const useStyle = makeStyles(theme => ({
     },
     buttonBlock: {
         display: "flex",
-        flexDirection: 'column',
-        justifyContent: 'center',
+        // flexDirection: 'column',
+        justifyContent: 'flex-end',
         alignItems: 'center'
     },
     content: {
@@ -74,6 +74,7 @@ export default function ResetDialog(props) {
     const s = useStyle()
 
     const [open, setOpen] = React.useState(false);
+    const [stepTwo, setStepTwo] = React.useState(false)
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -81,6 +82,10 @@ export default function ResetDialog(props) {
 
     const handleClose = () => {
         setOpen(false);
+        if (stepTwo === true) {
+            setStepTwo(!stepTwo)
+        }
+
     };
 
     return (
@@ -95,43 +100,74 @@ export default function ResetDialog(props) {
                     <span style={{fontSize: '0.5rem'}}>Use only if instructed, risk of entire wallet loss</span>
                 </div>
             </Button>
-            <Dialog open={open} onClose={handleClose} classes={{paper: s.border}}  aria-labelledby="form-dialog-title">
+            <Dialog open={open} onClose={handleClose} classes={{paper: s.border}} aria-labelledby="form-dialog-title">
                 <Box>
                     <div className={s.closeItem}>
                         <IconButton onClick={handleClose}>
                             <CloseIcon/>
                         </IconButton>
                     </div>
-                    <DialogTitle id="form-dialog-title" className={s.title} >SYSTEM RESET</DialogTitle>
-                    <DialogContent className={classNames(s.content )}>
+                    <DialogTitle id="form-dialog-title" className={s.title}>SYSTEM RESET</DialogTitle>
+                    <br/>
+                    <DialogContent className={classNames(s.content)}>
                         <DialogContentText>
-                            Are you sure you want to reset the system?
+                            {
+                                stepTwo
+                                    ? 'This action is irreversible! Apply or decline?'
+                                    : 'Are you sure you want to reset the system? This action is irreversible!'
+                            }
                         </DialogContentText>
-                        <Typography>
-                            Password:
-                        </Typography>
-                        <TextField
-                            className={s.textField}
-                            required
-                            variant="outlined"
-                            margin="dense"
-                            fullWidth
-                            // error={!valid && value.length >= 1}
-                            // helperText={'Not a valid XLM address'}
-                            // label="Amount"
-                            // value={values.numberformat}
-                            // onChange={handleChange}
-                            // name="numberformat"
-                            // id="formatted-numberformat-input"
-                            // InputProps={{
-                            //     inputComponent: NumberFormatCustom,
-                            // }}
-                        />
+                        <br/>
+                        <br/>
+                        {stepTwo ? null : <Divider/>}
+
+                        {stepTwo && <>
+                            <Typography>
+                                Password:
+                            </Typography>
+                            <TextField
+                                className={s.textField}
+                                required
+                                variant="outlined"
+                                margin="dense"
+                                fullWidth
+                                // error={!valid && value.length >= 1}
+                                // helperText={'Not a valid XLM address'}
+                                // label="Amount"
+                                // value={values.numberformat}
+                                // onChange={handleChange}
+                                // name="numberformat"
+                                // id="formatted-numberformat-input"
+                                // InputProps={{
+                                //     inputComponent: NumberFormatCustom,
+                                // }}
+                            />
+                        </>
+                        }
                     </DialogContent>
                     <DialogActions className={s.buttonBlock}>
-                        <Button disabled size={'large'} onClick={handleClose} variant={'contained'} color="secondary">
-                            Reset
-                        </Button>
+                        {
+                            stepTwo
+                                ? <>
+                                    <Button fullWidth size={'large'} onClick={handleClose} variant={'outlined'}
+                                            color="secondary">
+                                        Cancel
+                                    </Button>
+                                    <Button fullWidth disabled size={'large'} onClick={handleClose} variant={'contained'} color="secondary">
+                                        Reset
+                                    </Button>
+                                </>
+                                : <>
+                                    <Button fullWidth size={'large'} onClick={handleClose} variant={'outlined'}
+                                            color="secondary">
+                                        Cancel
+                                    </Button>
+                                    <Button fullWidth size={'large'} onClick={() => setStepTwo(!stepTwo)} variant={'contained'}
+                                            color="secondary">
+                                        Yes
+                                    </Button>
+                                </>
+                        }
                     </DialogActions>
                 </Box>
             </Dialog>

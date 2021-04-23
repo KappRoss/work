@@ -4,6 +4,8 @@ import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import {useHistory, useLocation} from "react-router-dom";
+import PortLink from "./components/PortLink";
+import EmailAddressLink from "./components/EmailAddressLink";
 
 const useStyles = makeStyles(theme => ({
     systemHealth: {
@@ -82,7 +84,7 @@ const SystemBlock = () => {
                         <Typography>Ports:</Typography>
                         <Typography variant="h5" color={"secondary"}>Open 4282, 4283</Typography>
                     </div>
-                    <Link component={'button'}  color={'inherit'} className={s.changePort}>Change Port Number</Link>
+                    <PortLink/>
                 </div>
                 <div className={s.infoBlockItem}>
                     <div className={s.storageItemsData}>
@@ -99,6 +101,7 @@ const SystemBlock = () => {
                         <Typography>Version:</Typography>
                         <Typography variant="h5" color={"secondary"}>1.5.2</Typography>
                     </div>
+                    <EmailAddressLink/>
                 </div>
             </div>
             <div className={s.navButtonBlock}>

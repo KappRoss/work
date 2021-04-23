@@ -45,9 +45,7 @@ export const portNumbersPageStyles = makeStyles(theme => ({
         padding: theme.spacing(3, 0)
     },
     subTitle: {
-        padding: theme.spacing(1, 0, 1),
-        maxWidth: 600
-
+        padding: theme.spacing(1, 0, 2, 1),
     },
     button: {
         margin: theme.spacing(1, 0, 1),
@@ -62,4 +60,16 @@ export const portNumbersPageStyles = makeStyles(theme => ({
     form: {
         marginTop: theme.spacing(1),
     },
+    heading: {
+        fontSize: theme.typography.pxToRem(15),
+        flexBasis: '33.33%',
+        flexShrink: 0,
+    },
+    secondaryHeading: {
+        fontSize: theme.typography.pxToRem(15),
+        color: theme.palette.text.secondary,
+    },
+    content: {
+        maxWidth: 'fit-content'
+    }
 }))

@@ -15,13 +15,13 @@ const useStyle = makeStyles(theme => ({
     }
 }))
 
-export default function CopySnackbar() {
+export default function CopySnackbar(props) {
     const s = useStyle()
 
     const [open, setOpen] = React.useState(false);
 
     const handleClick = () => {
-        navigator.clipboard.writeText("30641e79f42b4166cf3f4dca53a9e98e252bd62a9be8e73a0174dd70f28e522a")
+        navigator.clipboard.writeText(props.text)
         setOpen(true);
     };
 
@@ -59,7 +59,7 @@ export default function CopySnackbar() {
                 // }
             >
                 <Alert onClose={handleClose} severity="success">
-                    Xa-Miner address copied!
+                    {props.alertText || 'Xa-Miner address copied!'}
                 </Alert></Snackbar>
         </>
     );

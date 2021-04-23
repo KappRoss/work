@@ -12,6 +12,8 @@ import FileCopyTwoToneIcon from "@material-ui/icons/FileCopyTwoTone";
 import {Link as LinkTo} from "react-router-dom";
 import CopySnackbar from "./components/copySnackbar";
 import ResetDialog from "./components/resetDialog";
+import TechSupportIframe from "./components/TechSupportIframe/TechSupportIframe";
+import FAQIframe from "./components/FAQIframe/FAQIframe";
 
 const MainPageAdvancedView = () => {
     const s = mainPageUseStyle()
@@ -90,7 +92,9 @@ const MainPageAdvancedView = () => {
                                                 <span className={s.input}>
                                                     30641e79f42b4166cf3f4dca53a9e98e252bd62a9be8e73a0174dd70f28e522a
                                                 </span>
-                                                <span className={s.iconButton}><CopySnackbar/></span>
+                                                <span className={s.iconButton}><CopySnackbar
+                                                    text={'30641e79f42b4166cf3f4dca53a9e98e252bd62a9be8e73a0174dd70f28e522a'}/>
+                                                </span>
                                             </div>
                                         </div>
                                     </Grid>
@@ -479,31 +483,10 @@ const MainPageAdvancedView = () => {
                             <div className={classNames(s.group, s.supportButtons)}>
                                 <Grid container spacing={2}>
                                     <Grid item xs={4}>
-                                        <Link target="_blank"
-                                              href={'https://scpri.me/xaminer/support'}
-                                              rel="noreferrer"
-                                              color={'secondary'}
-                                        >
-                                            <Button fullWidth variant={'outlined'}
-                                                    color={'secondary'} size={'large'}
-                                                    className={s.supportButtonsItem}
-                                            >
-                                                Tech Support/RMA
-                                            </Button>
-                                        </Link>
+                                        <TechSupportIframe/>
                                     </Grid>
                                     <Grid item xs={4}>
-                                        <Link target="_blank"
-                                              href={'https://scpri.me/xaminer/FAQ'}
-                                              rel="noreferrer"
-                                              color={'secondary'}
-                                        >
-                                            <Button fullWidth variant={'outlined'}
-                                                    color={'secondary'} size={'large'}
-                                                    className={s.supportButtonsItem}
-                                            >
-                                                FAQ</Button>
-                                        </Link>
+                                        <FAQIframe/>
                                     </Grid>
                                     <Grid item xs={4}>
                                         <ResetDialog redButton={s.redButton}

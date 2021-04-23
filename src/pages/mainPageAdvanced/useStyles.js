@@ -103,7 +103,8 @@ export const mainPageUseStyle = makeStyles(theme => ({
     incomeItems: {
         display: "flex",
         flexDirection: 'row',
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        flexWrap: 'wrap'
     },
     incentives: {},
     incentivesLink: {
@@ -113,7 +114,8 @@ export const mainPageUseStyle = makeStyles(theme => ({
     incentivesItems: {
         display: "flex",
         flexDirection: 'row',
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        flexWrap: 'wrap'
     },
     incentivesData: {
         display: 'flex',

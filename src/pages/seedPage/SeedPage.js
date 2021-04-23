@@ -12,6 +12,7 @@ import {useHistory} from "react-router-dom";
 import {seedPageStyles} from "./useStyles";
 import is from 'is_js'
 import Box from "@material-ui/core/Box";
+import CopySnackbar from "../mainPageAdvanced/components/copySnackbar";
 
 const styles = (theme) => ({
     root: {
@@ -102,14 +103,26 @@ const SeedPage = (props) => {
                         </Typography>
                     </div>
                     {firstStep
-                        ? <TextareaAutosize
-                            className={s.textarea}
-                            rowsMin={5}
-                            rowsMax={5}
-                            readOnly
-                            aria-label="seed-code"
-                            placeholder="Enter Seed Code"
-                            defaultValue="seed-code seed-code seed-code seed-code seed-code seed-code"/>
+                        ? <div>
+                            <div className={s.textareaContainer}>
+                                <div className={s.icon}>
+                                    <CopySnackbar
+                                        text={'seed-code seed-code seed-code seed-code seed-code seed-code'}
+                                        alertText={'SEED-code copied!'}
+                                    />
+                                </div>
+                                <TextareaAutosize
+                                    className={s.textarea}
+                                    rowsMin={4}
+                                    rowsMax={4}
+                                    readOnly
+                                    aria-label="seed-code"
+                                    placeholder="Enter Seed Code"
+                                    defaultValue="seed-code seed-code seed-code seed-code seed-code seed-code code
+                                    seed-code seed-code seed-code seed-code seed-code seed-code code
+                                    seed-code seed-code seed-code seed-code seed-code "/>
+                            </div>
+                        </div>
                         : <form className={s.form}>
                             <TextField
                                 className={s.textField}

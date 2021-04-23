@@ -76,6 +76,11 @@ export default function LoaderPage() {
             {
                 progress === 100 && <Redirect to={'/main-page'}/>
             }
+
+            {/*value ?*/}
+            {/*:string 1*/}
+            {/*:string 2*/}
+            {/*:string 3*/}
         </div>
     )
 }

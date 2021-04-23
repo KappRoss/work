@@ -52,11 +52,22 @@ export const seedPageStyles = makeStyles(theme => ({
     textarea: {
         resize: "none",
         width: '100%',
+        background: theme.palette.primary.main,
+        border: 'none',
+        color: theme.palette.text.secondary,
+        padding: theme.spacing(0,3,3,4)
+    },
+    icon: {
+        display: 'flex',
+        justifyContent: 'flex-end'
+    },
+    textareaContainer: {
+        border: '2px solid',
         borderColor: theme.palette.secondary.main,
         borderRadius: 5,
-        background: theme.palette.primary.main,
-        color: theme.palette.text.secondary,
-        padding: theme.spacing(3)
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: ''
     },
     contentText: {
         padding: theme.spacing(1,2,2,2),
