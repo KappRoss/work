@@ -4,9 +4,11 @@ import {authReducer} from "./reducers/authReducer";
 import thunk from "redux-thunk";
 import storage from 'redux-persist/lib/storage'
 import {persistReducer, persistStore} from "redux-persist";
+import {settingsReducer} from "./reducers/settingsReducer";
 
 const rootReducer = combineReducers({
     auth: authReducer,
+    settings: settingsReducer
 })
 
 const persistConfig = {
@@ -16,12 +18,12 @@ const persistConfig = {
 }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-// export let store = createStore(persistedReducer,
-//     compose(applyMiddleware(thunk)))
+export let store = createStore(persistedReducer,
+    compose(applyMiddleware(thunk)))
 
 //const logger = createLogger()
 
-export let store = createStore(persistedReducer,
-    compose(applyMiddleware(thunk),(window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) || null),)
+// export let store = createStore(persistedReducer,
+//     compose(applyMiddleware(thunk),(window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())),)
 
 export let persistor = persistStore(store)

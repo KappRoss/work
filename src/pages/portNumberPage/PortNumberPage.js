@@ -16,8 +16,23 @@ const PortNumberPage = () => {
         setExpanded(isExpanded ? panel : false);
     }
 
+    const [firstPort, setFirstPort] = React.useState(4282)
+    const [secondPort, setSecondPort] = React.useState(4283)
+    const [touched1, setTouched1] = React.useState(false)
+    const [touched2, setTouched2] = React.useState(false)
+
+    const onChangeFirstPort = (event) => {
+        setTouched1(true)
+        setFirstPort(event.target.value)
+    }
+    const onChangeSecondPort = (event) => {
+        setTouched2(true)
+        setSecondPort(event.target.value)
+    }
+
     return (
         <Container className={s.root}>
+
             <div>
                 <Typography variant={'h3'} className={s.title}>
                     Set Port Numbers
@@ -31,7 +46,8 @@ const PortNumberPage = () => {
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                         >
-                            <Typography className={s.secondaryHeading}>If this is the first or only Xa-Miner on your network, the default ports (4282,
+                            <Typography className={s.secondaryHeading}>If this is the first or only Xa-Miner on your
+                                network, the default ports (4282,
                                 4283) should be left
                                 as is.</Typography>
                         </AccordionSummary>
@@ -73,12 +89,12 @@ const PortNumberPage = () => {
                         fullWidth
                         variant="outlined"
                         margin="normal"
-                        type={"text"}
-                        // value={formState.formControl.password.value}
-                        // error={!formState.formControl.password.valid && formState.formControl.password.touched}
+                        type={"number"}
+                        value={firstPort}
+                        error={!(firstPort.length === 4) && touched1}
                         label={"Hosting Port"}
                         helperText={"(if you have one Xa-Miner, leave at default)"}
-                        // onChange={event => onChangeHandler(event, 'password')}
+                        onChange={onChangeFirstPort}
                     />
                     <TextField
                         className={s.textField}
@@ -86,12 +102,12 @@ const PortNumberPage = () => {
                         fullWidth
                         variant="outlined"
                         margin="normal"
-                        type={"text"}
-                        // value={formState.formControl.password.value}
-                        // error={!formState.formControl.password.valid && formState.formControl.password.touched}
+                        type={"number"}
+                        value={secondPort}
+                        error={!(secondPort.length === 4) && touched2}
                         label={"Secondary Port"}
                         helperText={"(if you have one Xa-Miner, leave at default)"}
-                        // onChange={event => onChangeHandler(event, 'password')}
+                        onChange={onChangeSecondPort}
                     />
                     {location.pathname === '/set-port' &&
                     <Button

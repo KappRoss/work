@@ -3,20 +3,20 @@ import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import MuiAlert from '@material-ui/lab/Alert';
 import FileCopyTwoToneIcon from "@material-ui/icons/FileCopyTwoTone";
-import {makeStyles} from "@material-ui/core";
+// import {makeStyles} from "@material-ui/core";
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const useStyle = makeStyles(theme => ({
-    container: {
-        backgroundColor: theme.palette.secondary.main
-    }
-}))
+// const useStyle = makeStyles(theme => ({
+//     container: {
+//         backgroundColor: theme.palette.secondary.main
+//     }
+// }))
 
 export default function CopySnackbar(props) {
-    const s = useStyle()
+    // const s = useStyle()
 
     const [open, setOpen] = React.useState(false);
 

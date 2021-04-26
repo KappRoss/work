@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Checkbox, FormControlLabel, Typography, Link} from "@material-ui/core";
+import {Checkbox, FormControlLabel, Typography, Link} from "@material-ui/core";
 import {mainPageUseStyle} from "./useStyles";
 import Grid from "@material-ui/core/Grid";
 import classNames from "classnames";
@@ -7,9 +7,6 @@ import DiscMemory from "./components/DiscMemory";
 import SystemBlock from "../../components/SystemBlock";
 import SendCoinsDialog from "./components/sendCoins";
 import BandwidthSpeed from "./components/bandwidthSpeed";
-import IconButton from "@material-ui/core/IconButton";
-import FileCopyTwoToneIcon from "@material-ui/icons/FileCopyTwoTone";
-import {Link as LinkTo} from "react-router-dom";
 import CopySnackbar from "./components/copySnackbar";
 import ResetDialog from "./components/resetDialog";
 import TechSupportIframe from "./components/TechSupportIframe/TechSupportIframe";

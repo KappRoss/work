@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
@@ -13,6 +13,8 @@ import {seedPageStyles} from "./useStyles";
 import is from 'is_js'
 import Box from "@material-ui/core/Box";
 import CopySnackbar from "../mainPageAdvanced/components/copySnackbar";
+import {connect} from "react-redux";
+import {getSeedPubKey, postApiRegister} from "../../redux/actions/settings";
 
 const styles = (theme) => ({
     root: {
@@ -60,6 +62,11 @@ const DialogActions = withStyles((theme) => ({
 const SeedPage = (props) => {
     const s = seedPageStyles()
     const history = useHistory();
+
+    useEffect(() => {
+        props.getSeedPubKey()
+    })
+
     const [email, setEmail] = React.useState('')
     const isError = is.email(email)
     const [firstStep, setFirstStep] = React.useState(true)
@@ -83,6 +90,7 @@ const SeedPage = (props) => {
         if (firstStep) {
             setFirstStep(!firstStep)
         } else {
+            props.postApiRegister(email)
             history.push("/set-port")
         }
     }
@@ -107,7 +115,7 @@ const SeedPage = (props) => {
                             <div className={s.textareaContainer}>
                                 <div className={s.icon}>
                                     <CopySnackbar
-                                        text={'seed-code seed-code seed-code seed-code seed-code seed-code'}
+                                        text={props.seed}
                                         alertText={'SEED-code copied!'}
                                     />
                                 </div>
@@ -117,10 +125,8 @@ const SeedPage = (props) => {
                                     rowsMax={4}
                                     readOnly
                                     aria-label="seed-code"
-                                    placeholder="Enter Seed Code"
-                                    defaultValue="seed-code seed-code seed-code seed-code seed-code seed-code code
-                                    seed-code seed-code seed-code seed-code seed-code seed-code code
-                                    seed-code seed-code seed-code seed-code seed-code "/>
+                                    placeholder="Seed Code"
+                                    defaultValue={props.seed}/>
                             </div>
                         </div>
                         : <form className={s.form}>
@@ -159,4 +165,10 @@ const SeedPage = (props) => {
     )
 }
 
-export default SeedPage
+const mapStateToProps = state => {
+    return {
+        seed: state.settings.seed
+    }
+}
+
+export default connect(mapStateToProps, {getSeedPubKey, postApiRegister})(SeedPage)

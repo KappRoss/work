@@ -1,18 +1,17 @@
 import './animateSwitсher.css'
 import {Switch, Route, useLocation} from 'react-router-dom'
-import SupervisorPassPage from "./pages/supervisorPassPage";
+import SupervisorPassPage from "./old/pages/supervisorPassPage";
 import AppBar from "../src/components/AppBar";
 import {Container, CssBaseline} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import React from "react";
-import SettingsPage from './pages/settingsPage';
 import MainPageAdvancedView from "./pages/mainPageAdvanced";
 import LoaderPage from "./pages/loaderPage";
 import WelcomePage from "./pages/welcomePage";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import SeedPage from "./pages/seedPage";
 import MainPageBasicView from "./pages/mainPageBasic";
-import CreatePasswordPage from "./pages/createPassword";
+import CreatePasswordPage from "./old/pages/createPassword";
 import PortNumberPage from "./pages/portNumberPage";
 
 const useStyle = makeStyles(theme => ({
@@ -60,7 +59,6 @@ const App = () => {
                                     <Route exact path={'/create-supervisor-password'} component={CreatePasswordPage}/>
                                     <Route exact path={'/seed'} component={SeedPage}/>
                                     <Route exact path={'/set-port'} component={PortNumberPage}/>
-                                    <Route exact path={'/settings'} component={SettingsPage}/>
                                     <Route exact path={'/loader'} component={LoaderPage}/>
                                     <Route exact path={'/main-page'} component={MainPageBasicView}/>
                                     <Route exact path={'/main-page-advanced'} component={MainPageAdvancedView}/>

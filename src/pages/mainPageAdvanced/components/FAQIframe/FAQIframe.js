@@ -7,7 +7,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {makeStyles, useTheme} from '@material-ui/core/styles';
-import {IconButton, Link} from "@material-ui/core";
+import {IconButton} from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 
 const useStyle = makeStyles(theme => ({

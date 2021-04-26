@@ -1,4 +1,4 @@
-import {Button, Link, Typography} from "@material-ui/core";
+import {Button, Typography} from "@material-ui/core";
 import UpTimer from "../../pages/mainPageAdvanced/components/Uptimer";
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";

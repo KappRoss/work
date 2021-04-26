@@ -1,14 +1,15 @@
 import React from 'react'
 import {welcomePageStyles} from "./useStyles";
 import {Container, Typography} from "@material-ui/core";
-import {useHistory, withRouter} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 const WelcomePage = () => {
     const s = welcomePageStyles()
+
     const history = useHistory();
 
     const nextStep = () => {
-        history.push("/create-supervisor-password")  //supervisor-password
+        history.push("/loader")
     }
 
     return (
@@ -25,4 +26,5 @@ const WelcomePage = () => {
     )
 }
 
-export default withRouter(WelcomePage)
+
+export default WelcomePage

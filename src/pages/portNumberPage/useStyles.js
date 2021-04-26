@@ -16,7 +16,9 @@ export const portNumbersPageStyles = makeStyles(theme => ({
         margin: 0,
         maxWidth: "100%!important"
     },
+
     textField: {
+
         marginBottom: theme.spacing(2),
         "& .Mui-focused": {
             color: 'white',
