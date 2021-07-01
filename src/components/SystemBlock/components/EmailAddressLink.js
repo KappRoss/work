@@ -6,16 +6,24 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { IconButton, makeStyles, Typography} from "@material-ui/core";
+import {IconButton, makeStyles} from "@material-ui/core";
 import classNames from "classnames";
 import Box from "@material-ui/core/Box";
 import CloseIcon from '@material-ui/icons/Close';
-import {useLocation} from "react-router-dom";
 import Link from "@material-ui/core/Link";
+import {connect} from "react-redux";
+import is from 'is_js'
+import {changeEmail} from "../../../redux/actions/settings";
 
 const useStyle = makeStyles(theme => ({
     container: {
-        display: "grid",
+        display: "flex",
+        minHeight: 30,
+        // [theme.breakpoints.down('xs')]: {
+        //     display: "flex",
+        //     width: '100%',
+        //     justifyContent: 'center'
+        // }
     },
     closeItem: {
         display: 'flex',
@@ -31,6 +39,7 @@ const useStyle = makeStyles(theme => ({
         display: "flex",
         flexDirection: 'column',
         justifyContent: 'center',
+        minWidth: "400px",
     },
     border: {
         padding: theme.spacing(1),
@@ -69,20 +78,30 @@ const useStyle = makeStyles(theme => ({
         },
     },
     link: {
-        textDecoration: "underline"
+        textDecoration: "underline",
+        "&:hover": {
+            color: theme.palette.secondary.main
+        }
     },
     currentEmail: {
         color: theme.palette.secondary.main,
         textDecoration: "underline"
+    },
+    emailLinkBlock: {
+        display: "flex",
+        [theme.breakpoints.down('xs')]: {
+            display: "flex",
+            justifyContent: "center",
+            paddingTop: theme.spacing(1),
+        }
     }
 }))
 
 
-export default function EmailAddressLink(props) {
+const EmailAddressLink = (props) => {
     const s = useStyle()
-    const location = useLocation()
     const [open, setOpen] = React.useState(false);
-
+    const [email, setEmail] = React.useState('')
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -91,26 +110,31 @@ export default function EmailAddressLink(props) {
         setOpen(false);
     };
 
+    const saveNewEmail = () => {
+        props.changeEmail(email)
+        setOpen(false);
+    };
+
     return (
-        <div className={s.container} style={{width: props.width, height: "100%"}}>
-            {location.pathname === "/main-page" &&
-            <Link component={'button'} color={'inherit'} className={s.link} onClick={handleClickOpen}>
-                Change Email Address
-            </Link>}
-            <Dialog open={open} onClose={handleClose} classes={{paper: s.border}}  aria-labelledby="form-dialog-title">
+        <div className={s.container} style={{width: props.width}}>
+            <div className={s.emailLinkBlock}>
+                <Link component={'button'} variant={'subtitle1'} color={'inherit'} className={s.link}
+                      onClick={handleClickOpen}>
+                    Contact Info
+                </Link>
+            </div>
+            <Dialog open={open} onClose={handleClose} classes={{paper: s.border}} aria-labelledby="form-dialog-title">
                 <Box>
                     <div className={s.closeItem}>
                         <IconButton onClick={handleClose}>
                             <CloseIcon/>
                         </IconButton>
                     </div>
-                    <DialogTitle id="form-dialog-title" className={s.title} >Change Email Address</DialogTitle>
-                    <DialogContent className={classNames(s.content )}>
-                        <Typography>
-
-                        </Typography>
+                    <DialogTitle id="form-dialog-title" className={s.title}>Change Email Address</DialogTitle>
+                    <DialogContent className={classNames(s.content)}>
                         <DialogContentText>
-                            Current Email:  <span className={s.currentEmail}>test1@gmail.com</span>&nbsp;
+                            Current Email: <span className={s.currentEmail}>{props.email || 'not entered'}</span>&nbsp;
+                            <br/>
                             Please, enter your New Email:
                         </DialogContentText>
                         <TextField
@@ -119,38 +143,20 @@ export default function EmailAddressLink(props) {
                             margin="normal"
                             required
                             fullWidth
-                            // error={!isError && email.length >= 1}
+                            error={!is.email(email) && email.length >= 1}
                             name="email"
                             label="Email"
                             type="email"
                             id="email"
                             // autoComplete="current-email"
-                            // value={email}
-                            // onChange={emailHandler}
-                            // onKeyPress={kayPressHandler}
-                        />
-                        <Typography>
-                            Password:
-                        </Typography>
-                        <TextField
-                            className={s.textField}
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            // error={!isError && email.length >= 1}
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            // autoComplete="current-email"
-                            // value={email}
-                            // onChange={emailHandler}
+                            value={email}
+                            onChange={event => setEmail(event.target.value)}
                             // onKeyPress={kayPressHandler}
                         />
                     </DialogContent>
                     <DialogActions className={s.buttonBlock}>
-                        <Button disabled size={'large'} onClick={handleClose} variant={'contained'} color="secondary">
+                        <Button disabled={!is.email(email)} size={'large'} onClick={saveNewEmail} variant={'contained'}
+                                color="secondary">
                             Save
                         </Button>
                     </DialogActions>
@@ -159,6 +165,15 @@ export default function EmailAddressLink(props) {
         </div>
     );
 }
+
+const mapStateToProps = state => {
+    return {
+        email: state.settings.email
+    }
+}
+
+export default connect(mapStateToProps, {changeEmail})(EmailAddressLink)
+
 
 
 

@@ -7,17 +7,16 @@ import Grid from "@material-ui/core/Grid";
 import XaMiner from "../../assets/svg/XaMiner";
 import ScPrimeSVG from "../../assets/svg/ScPrime";
 
-function ButtonAppBar(props) {
+function ButtonAppBar() {
     const classes = appBarStyles()
     return (
         <div className={classes.root}>
             <AppBar position="relative">
                 <Grid container justify={'space-between'}>
-                    <Grid item xs={false} sm={1} md={1} lg={2} xl={2}/>
-                    <Grid item xs={12} sm={10} md={10} lg={8} xl={6}>
+                    <Grid item xs={false} sm={1} md={1} lg={1} xl={2}/>
+                    <Grid item xs={12} sm={10} md={10} lg={10} xl={8}>
                         <Toolbar className={classes.toolbar}>
                             {
-
                                 <>
                                     <XaMiner/>
                                     <ScPrimeSVG/>
@@ -25,7 +24,7 @@ function ButtonAppBar(props) {
                             }
                         </Toolbar>
                     </Grid>
-                    <Grid item xs={false} sm={1} md={1} lg={2} xl={2}/>
+                    <Grid item xs={false} sm={1} md={1} lg={1} xl={2}/>
                 </Grid>
             </AppBar>
         </div>
